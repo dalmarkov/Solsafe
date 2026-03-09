@@ -106,10 +106,10 @@ export default function Navbar() {
         <div className="flex items-center gap-4 relative z-[160]">
           {!isMobileMenuOpen && (
             <a 
-              href="tel:+48000000000" 
+              href="tel:+48 537 240 689" 
               className="hidden lg:block text-[11px] font-bold tracking-widest text-white whitespace-nowrap"
             >
-              +48 000 000 000
+              +48 537 240 689
             </a>
           )}
 
@@ -134,7 +134,6 @@ export default function Navbar() {
         <div className="h-full overflow-y-auto pt-28 pb-12 px-8 flex flex-col bg-white">
           <div className="flex flex-col min-h-max">
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 mb-8 italic">
-              Menu — Solsafe
             </span>
             <div className="flex flex-col space-y-7 mb-12">
               {navLinks.map((item) => (
@@ -151,7 +150,7 @@ export default function Navbar() {
             <div className="mt-auto pt-10 border-t border-gray-100 flex flex-col gap-5">
               <a href="#onas" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-widest text-gray-400">O Nas</a>
               <a href="#kontakt" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-widest text-[#ff5a1f]">Kontakt</a>
-              <a href="tel:+48000000000" className="text-2xl font-light text-black mt-2 tracking-tight">+48 000 000 000</a>
+              <a href="tel:+48 537 240 689" className="text-2xl font-light text-black mt-2 tracking-tight">+48 537 240 689</a>
             </div>
           </div>
         </div>
