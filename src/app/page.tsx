@@ -18,7 +18,7 @@ export default function Home() {
       <Hero />
 
       {/* 2. СЕКЦИЯ: DLA FIRMY */}
-      <section className="relative h-[85vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[86vh] w-full flex items-center overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10"></div>
           <img src="/img/for_firm1.png" alt="Fotowoltaika dla firm" className="w-full h-full object-cover" />
@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       {/* 3. СЕКЦИЯ: FARMY FOTOWOLTAICZNE */}
-      <section className="relative h-[85vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[86vh] w-full flex items-center overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/30 z-10"></div>
           <img src="/img/farmy.jpg" alt="Farmy fotowoltaiczne" className="w-full h-full object-cover" />
@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* 4. СЕКЦИЯ: DLA ДОМА */}
-      <section className="relative h-[85vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[86vh] w-full flex items-center overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10"></div>
           <img src="/img/dla_domu.jpg" alt="Fotowoltaika dla domu" className="w-full h-full object-cover" />
@@ -69,7 +69,7 @@ export default function Home() {
       <section className="relative w-full flex flex-col md:flex-row gap-[5px] bg-black p-[5px]">
         
         {/* ЛЕВЫЙ БЛОК: Centrum Solsafe */}
-        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-xl bg-zinc-900 group">
+        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-none bg-zinc-900 group">
           <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors duration-500"></div>
           <img 
             src="/img/help_center.jpg" 
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
 
         {/* ПРАВЫЙ БЛОК: Wszystko o energii */}
-        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-xl bg-zinc-900 group">
+        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-none bg-zinc-900 group">
           <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/30 transition-colors duration-500"></div>
           <img 
             src="/img/question_energy.jpg" 
