@@ -10,8 +10,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#F7F6F2] text-[#1a1a1a] py-20 px-8 border-t border-black/5">
-      <div className="max-w-[1440px] mx-auto grid md:grid-cols-3 gap-12 border-b border-black/5 pb-16">
+    <footer className="bg-[#F7F6F2] text-[#1a1a1a] py-10 px-8 border-t border-black/5">
+      <div className="max-w-[1440px] mx-auto grid md:grid-cols-3 gap-10 border-b border-black/5 pb-16">
         
         {/* ЛОГОТИП */}
         <div>
@@ -67,7 +67,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto pt-8 text-[9px] text-gray-400 uppercase tracking-[0.4em] font-bold flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="max-w-[1440px] mx-auto pt-5 text-[9px] text-gray-400 uppercase tracking-[0.4em] font-bold flex flex-col sm:flex-row justify-between items-center gap-4">
         <span>© 2026 Solsafe. Wszelkie prawa zastrzeżone.</span>
         <div className="flex gap-8">
           <a href="#" className="hover:text-black transition">Facebook</a>

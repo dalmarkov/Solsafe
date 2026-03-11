@@ -8,7 +8,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: false, margin: "-50px" },
-  transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] as const }
+  transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }
 };
 
 export default function Home() {
@@ -18,9 +18,9 @@ export default function Home() {
       <Hero />
 
       {/* 2. СЕКЦИЯ: DLA FIRMY */}
-      <section className="relative h-[86vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[90vh] w-full flex items-center overflow-hidden group">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/40 z-10"></div>
+          <div className="absolute inset-0 bg-black/20 z-10"></div>
           <img src="/img/for_firm1.png" alt="Fotowoltaika dla firm" className="w-full h-full object-cover" />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
@@ -34,9 +34,9 @@ export default function Home() {
       </section>
 
       {/* 3. СЕКЦИЯ: FARMY FOTOWOLTAICZNE */}
-      <section className="relative h-[86vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[90vh] w-full flex items-center overflow-hidden group">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/30 z-10"></div>
+          <div className="absolute inset-0 bg-black/20 z-10"></div>
           <img src="/img/farmy.jpg" alt="Farmy fotowoltaiczne" className="w-full h-full object-cover" />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full text-right flex flex-col items-end">
@@ -50,9 +50,9 @@ export default function Home() {
       </section>
 
       {/* 4. СЕКЦИЯ: DLA ДОМА */}
-      <section className="relative h-[86vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[90vh] w-full flex items-center overflow-hidden group">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/40 z-10"></div>
+          <div className="absolute inset-0 bg-black/20 z-10"></div>
           <img src="/img/dla_domu.jpg" alt="Fotowoltaika dla domu" className="w-full h-full object-cover" />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
@@ -66,10 +66,10 @@ export default function Home() {
       </section>
 
       {/* 5. КВАДРАТНЫЕ БЛОКИ (ТЕКСТ СМЕЩЕН ВНИЗ) */}
-      <section className="relative w-full flex flex-col md:flex-row gap-[5px] bg-black p-[5px]">
+      <section className="relative w-full flex flex-col md:flex-row gap-[7px] bg-[#F7F6F2] p-[7px]">
         
         {/* ЛЕВЫЙ БЛОК: Centrum Solsafe */}
-        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-none bg-zinc-900 group">
+        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-sm bg-zinc-900 group">
           <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors duration-500"></div>
           <img 
             src="/img/help_center.jpg" 
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
 
         {/* ПРАВЫЙ БЛОК: Wszystko o energii */}
-        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-none bg-zinc-900 group">
+        <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-sm bg-zinc-900 group">
           <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/30 transition-colors duration-500"></div>
           <img 
             src="/img/question_energy.jpg" 

@@ -11,18 +11,15 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="object-cover w-full h-full opacity-70" // opacity-70 делает видео чуть темнее для читаемости текста
+          className="object-cover w-full h-full opacity-90" // opacity-70 делает видео чуть темнее для читаемости текста
         >
           {/* Путь /hero-video.mp4 автоматически ищет файл в папке public */}
           <source src="/hero-video.mp4" type="video/mp4" />
           Ваш браузер не поддерживает видео.
         </video>
-        
-        {/* Мягкий градиент поверх видео, чтобы текст всегда был виден */}
-        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
-      {/* 2. КОНТЕНТ (Стиль Enphase) */}
+      {/* 2. КОНТЕНТ */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
         
         <h1 className="text-white text-4xl md:text-6xl lg:text-[75px] font-light tracking-tight max-w-[1200px] mb-8 leading-[1.1]">
@@ -45,7 +42,7 @@ export default function Hero() {
       </div>
 
       {/* Нижний градиент для плавного перехода к контенту */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/40 to-transparent z-[5]"></div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/50 to-transparent z-[5]"></div>
     </section>
   );
 }

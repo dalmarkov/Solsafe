@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white pt-[120px] px-8">
+    <main className="min-h-screen bg-[#F7F6F2] text-white pt-[120px] px-8">
       <div className="max-w-[1440px] mx-auto">
         <motion.span 
           initial={{ opacity: 0, y: 10 }}
