@@ -11,7 +11,7 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="object-cover w-full h-full opacity-90" // opacity-70 делает видео чуть темнее для читаемости текста
+          className="object-cover w-full h-full opacity-90" // opacity-90 делает видео чуть темнее для читаемости текста
         >
           {/* Путь /hero-video.mp4 автоматически ищет файл в папке public */}
           <source src="/hero-video.mp4" type="video/mp4" />

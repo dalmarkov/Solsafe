@@ -2,6 +2,7 @@
 
 import Hero from '@/components/Hero';
 import { motion } from 'framer-motion';
+import Link from 'next/link'; // Добавляем импорт для навигации
 
 // Настройка анимации появления контента
 const fadeInUp = {
@@ -18,7 +19,7 @@ export default function Home() {
       <Hero />
 
       {/* 2. СЕКЦИЯ: DLA FIRMY */}
-      <section className="relative h-[90vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[92vh] w-full flex items-end pb-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/20 z-10"></div>
           <img src="/img/for_firm1.png" alt="Fotowoltaika dla firm" className="w-full h-full object-cover" />
@@ -27,14 +28,17 @@ export default function Home() {
           <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Efektywność biznesu</span>
           <h2 className="text-white text-5xl md:text-7xl font-light mb-8 tracking-tight">Dla Firmy</h2>
           <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Zredukuj koszty operacyjne i zbuduj wizerunek ekologicznego przedsiębiorstwa.</p>
-          <button className="px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest group-hover:bg-white group-hover:text-black">
-            Sprawdź ofertę
-          </button>
+          {/* ДОБАВЛЕНО: Ссылка для фирмы */}
+          <Link href="/dla-firmy">
+            <button className="px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
+              Sprawdź ofertę
+            </button>
+          </Link>
         </motion.div>
       </section>
 
       {/* 3. СЕКЦИЯ: FARMY FOTOWOLTAICZNE */}
-      <section className="relative h-[90vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[92vh] w-full flex items-end pb-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/20 z-10"></div>
           <img src="/img/farmy.jpg" alt="Farmy fotowoltaiczne" className="w-full h-full object-cover" />
@@ -43,29 +47,34 @@ export default function Home() {
           <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Wielka skala</span>
           <h2 className="text-white text-5xl md:text-7xl font-light mb-8 tracking-tight">Farmy Fotowoltaiczne</h2>
           <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Inwestycje w OZE na dużą skalę.</p>
-          <button className="px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest group-hover:bg-white group-hover:text-black">
-            Dowiedz się więcej
-          </button>
+          {/* ДОБАВЛЕНО: Ссылка для ферм */}
+          <Link href="/farmy">
+            <button className="px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
+              Dowiedz się więcej
+            </button>
+          </Link>
         </motion.div>
       </section>
 
       {/* 4. СЕКЦИЯ: DLA ДОМА */}
-      <section className="relative h-[90vh] w-full flex items-center overflow-hidden group">
+      <section className="relative h-[92vh] w-full flex items-end pb-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/20 z-10"></div>
-          <img src="/img/dla_domu.jpg" alt="Fotowoltaika dla domu" className="w-full h-full object-cover" />
+          <img src="/img/dla_domu2.jpg" alt="Fotowoltaika dla domu" className="w-full h-full object-cover" />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
-          <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Niezależność</span>
+          <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Niezależность</span>
           <h2 className="text-white text-5xl md:text-7xl font-light mb-8 tracking-tight">Dla Domu</h2>
           <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Czysta energia dla Twojej rodziny.</p>
-          <button className="px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest group-hover:bg-white group-hover:text-black">
-            Bezpłatna wycena
-          </button>
+          <Link href="/dla-domu">
+            <button className="px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
+              Bezpłatna wycena
+            </button>
+          </Link>
         </motion.div>
       </section>
 
-      {/* 5. КВАДРАТНЫЕ БЛОКИ (ТЕКСТ СМЕЩЕН ВНИЗ) */}
+      {/* 5. КВАДРАТНЫЕ БЛОКИ */}
       <section className="relative w-full flex flex-col md:flex-row gap-[7px] bg-[#F7F6F2] p-[7px]">
         
         {/* ЛЕВЫЙ БЛОК: Centrum Solsafe */}
@@ -76,7 +85,6 @@ export default function Home() {
             alt="Centrum Solsafe" 
             className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" 
           />
-          {/* Изменено: justify-end и pb-16 для смещения текста вниз */}
           <motion.div {...fadeInUp} className="relative z-20 h-full flex flex-col items-center justify-end text-center px-8 pb-12 md:pb-20">
             <h3 className="text-white text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">Centrum Solsafe</h3>
             <p className="text-white/70 text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Uzyskaj pomoc, której potrzebujesz.</p>
@@ -95,7 +103,6 @@ export default function Home() {
             alt="Wszystko o energii" 
             className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" 
           />
-          {/* Изменено: justify-end и pb-16 для смещения текста вниз */}
           <motion.div {...fadeInUp} className="relative z-20 h-full flex flex-col items-center justify-end text-center px-8 pb-12 md:pb-20">
             <h3 className="text-white text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">Wszystko o energii</h3>
             <p className="text-white/70 text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Fotowoltaika bez tajemnic. Odpowiedzi na najczęstsze pytania.</p>
