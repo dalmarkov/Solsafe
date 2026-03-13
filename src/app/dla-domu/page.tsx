@@ -15,7 +15,7 @@ const products = [
     tag: "Energy Production",
     desc: "Zaawansowane systemy oparte na technologii mikrofalowników. Zapewniamy maksymalną wydajność każdego modułu.",
     details: "Nasze systemy PV charakteryzują się o 25% wyższą wydajnością w skali roku dzięki eliminacji wpływu zacienienia. Oferujemy monitoring na poziomie pojedynczego panelu i 25-letnią gwarancję produktową.",
-    img: "/img/dla_domu1.jpg"
+    img: "/img/dla-domu/dla_domu1.jpg"
   },
   { 
     title: "Ładowarki do samochodów", 
