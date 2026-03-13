@@ -55,13 +55,14 @@ export default function Footer() {
         <div className="space-y-6">
           <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/20">Kontakt</h4>
           <div className="space-y-2">
-            <p className="text-sm text-gray-500 font-light italic">Bielsko-Biała, Polska</p>
+            <p className="text-sm text-gray-500 font-light ">ul. Bystrzańska 70,
+43-309 Bielsko-Biała</p>
             {/* Добавил ссылку на отдельную страницу контактов, так как она у тебя есть в структуре */}
             <Link href="/kontakt" className="block text-sm text-gray-500 font-light hover:text-black transition mb-2">
               Strona kontaktowa
             </Link>
             <a href="mailto:biuro@solsafe.pl" className="block text-sm text-gray-500 font-light hover:text-black transition">
-              biuro@solsafe.pl
+              Solsafe@Solsafe.pl
             </a>
           </div>
         </div>

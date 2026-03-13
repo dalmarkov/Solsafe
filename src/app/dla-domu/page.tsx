@@ -15,35 +15,35 @@ const products = [
     tag: "Energy Production",
     desc: "Zaawansowane systemy oparte na technologii mikrofalowników. Zapewniamy maksymalną wydajność każdego modułu.",
     details: "Nasze systemy PV charakteryzują się o 25% wyższą wydajnością w skali roku dzięki eliminacji wpływu zacienienia. Oferujemy monitoring na poziomie pojedynczego panelu i 25-letnią gwarancję produktową.",
-    img: "/img/question_energy.jpg"
+    img: "/img/dla_domu1.jpg"
   },
   { 
     title: "Ładowarki do samochodów", 
     tag: "E-mobility",
     desc: "Inteligentne stacje ładowania Wallbox zintegrowane z Twoją instalacją.",
     details: "System dynamicznego równoważenia obciążenia (DLB) dba, aby ładowanie auta nie przeciążyło sieci domowej.",
-    img: "/img/dla_domu1.jpg"
+    img: "/img/dla-domu/charger.jpg"
   },
   { 
     title: "Automatyka Domowa", 
     tag: "Smart Control",
     desc: "Zarządzaj energią w czasie rzeczywistym.",
     details: "Solsafe Home App pozwala na inteligentne zarządzanie urządzeniami o wysokim poborze mocy.",
-    img: "/img/farmy.jpg"
+    img: "/img/dla-domu/smart-home.jpg"
   },
   { 
-    title: "Instalacje Elektryczne", 
+    title: "Elektryka", 
     tag: "Safe Infrastructure",
     desc: "Bezpieczeństwo to podstawa.",
     details: "Od modernizacji rozdzielni po kompleksowe okablowanie inteligentnego domu.",
-    img: "/img/for_firm1.png"
+    img: "/img/dla-domu/electric.jpg"
   },
   { 
     title: "Pompy Ciepła", 
     tag: "Eco Heating",
     desc: "Ekologiczne ogrzewanie.",
     details: "Dobieramy pompy ciepła o najwyższym współczynniku COP.",
-    img: "/img/map.jpg"
+    img: "/img/dla-domu/pomp.jpg"
   }
 ]
 
@@ -185,7 +185,7 @@ export default function Page() {
                 </div>
 
                 {/* IMAGE */}
-                <div className={`relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-xl group ${idx % 2 !== 0 ? "lg:order-1" : ""}`}>
+                <div className={`relative aspect-[15/15] rounded-[24px] overflow-hidden shadow-xl group ${idx % 2 !== 0 ? "lg:order-1" : ""}`}>
 
                   <motion.div
                     whileHover={{ scale: 1.05 }}
