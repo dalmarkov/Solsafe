@@ -52,11 +52,10 @@ export default function Page() {
       <section className="relative w-full h-[87.5vh]" style={{ clipPath: 'inset(0 0 0 0)' }}>
         <div className="fixed inset-0 w-full h-[90vh] z-0">
           <img src="/img/dla_domu2.jpg" alt="Dla Domu" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+          <div className="backdrop-blur-[2px] absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
         </div>
         <div className="relative z-20 h-full flex flex-col justify-end pb-24 md:pb-32 px-8 md:px-24">
           <div className="max-w-[1600px] mx-auto w-full">
-            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[#ff5a1f] font-bold tracking-[0.5em] text-[12px] uppercase mb-6 block">Solsafe Home Systems</motion.span>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-white text-4xl md:text-8xl font-light tracking-tight uppercase italic">Twój dom. <br/><span className="font-medium not-italic text-white/90">Twoja energia.</span></motion.h1>
           </div>
         </div>

@@ -43,19 +43,11 @@ export default function Page() {
             alt="Farmy" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
+          <div className="backdrop-blur-[2px] absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
         </div>
         
         <div className="relative z-20 h-full flex flex-col justify-end pb-20 px-6 md:px-24">
           <div className="max-w-[1600px] mx-auto w-full">
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-[#ff5a1f] font-bold tracking-[0.3em] text-[10px] md:text-[12px] uppercase mb-4 block"
-            >
-              Large Scale Energy
-            </motion.span>
-            
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

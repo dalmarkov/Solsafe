@@ -42,19 +42,11 @@ export default function Page() {
             alt="Fotowoltaika dla Firm" 
             className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
+          <div className="backdrop-blur-[2px] absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
         </div>
         
-        <div className="relative z-20 h-full flex flex-col justify-end pb-24 px-8 md:px-24">
+        <div className="relative z-20 h-full flex flex-col justify-end pb-20 px-6 md:px-24">
           <div className="max-w-[1440px] mx-auto w-full">
-            <motion.span 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-[#ff5a1f] font-bold tracking-[0.5em] text-[10px] md:text-[12px] uppercase mb-6 block"
-            >
-              Energia dla Biznesu
-            </motion.span>
-            
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,15 +55,6 @@ export default function Page() {
               Inwestycja, która <br className="hidden md:block"/> 
               <span className="font-medium not-italic text-white/90">pracuje na Twój zysk.</span>
             </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-white/60 text-base md:text-2xl max-w-2xl font-light"
-            >
-              Zredukuj koszty operacyjne i zwiększ niezależność energetyczną swojego przedsiębiorstwa.
-            </motion.p>
           </div>
         </div>
       </section>
