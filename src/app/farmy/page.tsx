@@ -24,10 +24,10 @@ const itemVariants: Variants = {
 }
 
 const farmServices = [
-  { title: "Projektowanie i Analiza", desc: "Kompleksowe przygotowanie dokumentacji i audyt terenu." },
-  { title: "Budowa i Wykonawstwo", desc: "Generalne wykonawstwo instalacji o mocach megawatowych." },
-  { title: "Przyłącza i Sieci", desc: "Zarządzanie procesem przyłączenia do sieci energetycznej." },
-  { title: "O&M - Serwis Farm", desc: "Stały monitoring techniczny i utrzymanie infrastruktury." }
+  { title: "Analiza", desc: "Kompleksowe przygotowanie dokumentacji i audyt terenu." },
+  { title: "Projektowanie", desc: "Generalne wykonawstwo instalacji o mocach megawatowych." },
+  { title: "Budowa", desc: "Zarządzanie procesem przyłączenia do sieci energetycznej." },
+  { title: "O&M", desc: "Stały monitoring techniczny i utrzymanie infrastruktury." }
 ]
 
 export default function Page() {

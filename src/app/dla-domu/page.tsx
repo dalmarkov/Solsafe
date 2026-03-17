@@ -11,38 +11,38 @@ const fadeUp = {
 
 const products = [
   { 
-    title: "Instalacje Fotowoltaiczne", 
+    title: "Instalacje", 
     tag: "Energy Production",
-    desc: "Zaawansowane systemy oparte na technologii mikrofalowników. Zapewniamy maksymalną wydajność każdego modułu.",
-    details: "Nasze systemy PV charakteryzują się o 25% wyższą wydajnością w skali roku dzięki eliminacji wpływu zacienienia. Oferujemy monitoring na poziomie pojedynczego panelu i 25-letnią gwarancję produktową.",
+    desc: "Maksymalna wydajność dzięki technologii mikrofalowników.",
+    details: "Nasze systemy PV eliminują wpływ zacienienia, zapewniając do 25% więcej energii w skali roku. Oferujemy monitoring każdego panelu z osobna oraz 25-letnią gwarancję na sprzęt.",
     img: "/img/dla-domu/dla_domu1.jpg"
   },
   { 
-    title: "Ładowarki do samochodów", 
-    tag: "E-mobility",
-    desc: "Inteligentne stacje ładowania Wallbox zintegrowane z Twoją instalacją.",
-    details: "System dynamicznego równoważenia obciążenia (DLB) dba, aby ładowanie auta nie przeciążyło sieci domowej.",
-    img: "/img/dla-domu/charger.jpg"
+    title: "Magazyny Energii", 
+    tag: "Energy Independence",
+    desc: "Twoja własna energia dostępna o każdej porze dnia i nocy.",
+    details: "Zwiększ autokonsumpcję i zabezpiecz swój dom przed przerwami w dostawie prądu. Dobieramy pojemność baterii idealnie pod Twój profil zużycia, zapewniając pełne bezpieczeństwo energetyczne.",
+    img: "/img/dla-domu/magazyn.jpg"
   },
   { 
-    title: "Automatyka Domowa", 
-    tag: "Smart Control",
-    desc: "Zarządzaj energią w czasie rzeczywistym.",
-    details: "Solsafe Home App pozwala na inteligentne zarządzanie urządzeniami o wysokim poborze mocy.",
-    img: "/img/dla-domu/smart-home.jpg"
-  },
-  { 
-    title: "Elektryka", 
-    tag: "Safe Infrastructure",
-    desc: "Bezpieczeństwo to podstawa.",
-    details: "Od modernizacji rozdzielni po kompleksowe okablowanie inteligentnego domu.",
+    title: "Elektryka & Automatyka", 
+    tag: "Smart Infrastructure",
+    desc: "Nowoczesne instalacje elektryczne i systemy Smart Home.",
+    details: "Od kompleksowego okablowania po inteligentne zarządzanie domem. Projektujemy systemy, które uczą się Twoich nawyków, oszczędzając energię i podnosząc komfort życia.",
     img: "/img/dla-domu/electric.jpg"
+  },
+  { 
+    title: "Ładowarki elektryczne", 
+    tag: "E-mobility",
+    desc: "Szybkie i bezpieczne ładowanie Twojego auta w domu.",
+    details: "Stacje typu Wallbox zintegrowane z fotowoltaiką. Dzięki funkcji DLB (Dynamic Load Balancing) system automatycznie dostosowuje moc ładowania, chroniąc Twoją instalację przed przeciążeniem.",
+    img: "/img/dla-domu/charger.jpg"
   },
   { 
     title: "Pompy Ciepła", 
     tag: "Eco Heating",
-    desc: "Ekologiczne ogrzewanie.",
-    details: "Dobieramy pompy ciepła o najwyższym współczynniku COP.",
+    desc: "Czyste i tanie ogrzewanie zintegrowane z słońcem.",
+    details: "Dobieramy urządzenia o najwyższym współczynniku wydajności COP. W połączeniu z instalacją fotowoltaiczną, pompa ciepła staje się niemal darmowym źródłem ogrzewania i ciepłej wody.",
     img: "/img/dla-domu/pomp.jpg"
   }
 ]

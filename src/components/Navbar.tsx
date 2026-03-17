@@ -19,13 +19,11 @@ export default function Navbar() {
       if (typeof window !== 'undefined') {
         const currentScrollY = window.scrollY;
         
-        // Если меню открыто, навбар не должен исчезать
         if (isMobileMenuOpen) {
           setIsVisible(true);
           return;
         }
 
-        // Логика скрытия (работает и для absolute, и для fixed)
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
           setIsVisible(false);
         } else {
@@ -39,11 +37,9 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, isMobileMenuOpen]);
 
-  // Сброс при смене страницы
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsVisible(true);
-    // Это важно для Next.js, чтобы "absolute" не потерялся при переходе
     window.scrollTo(0, 0);
   }, [pathname]);
 
@@ -67,14 +63,24 @@ export default function Navbar() {
     { name: 'Biuro Rachunkowe', href: '/biuro-rachunkowe' },
   ];
 
+  // Чистый SVG конверт
+  const MailIcon = ({ className = "w-5 h-5" }) => (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      className={className}
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="1.5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  );
+
   return (
     <nav 
-      /**
-       * СУТЬ РЕШЕНИЯ:
-       * 1. На мобилках: absolute top-0. Это дает 100% высоту страницы (контент под навбаром).
-       * 2. На десктопе: xl:fixed. Навбар всегда на виду.
-       * 3. При открытом меню: !fixed (через Tailwind ! приоритет).
-       */
       className={`w-full z-[100] h-[70px] transition-transform duration-500 ease-in-out bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5 ${
         isMobileMenuOpen 
           ? '!fixed top-0 left-0 bg-white translate-y-0' 
@@ -96,7 +102,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* DESKTOP NAV (xl: 1280px) */}
+        {/* DESKTOP NAV */}
         <div className="hidden xl:flex items-center justify-center gap-x-8 h-full flex-grow mx-4">
           {navLinks.map((item) => (
             <Link 
@@ -119,7 +125,7 @@ export default function Navbar() {
             onMouseLeave={() => setIsFirmaOpen(false)}
           >
             <div className={`text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 transition-colors ${isFirmaOpen ? 'text-white' : 'text-gray-400'}`}>
-              Firma 
+               o nas
               <svg className={`w-2.5 h-2.5 transition-transform duration-300 ${isFirmaOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" />
               </svg>
@@ -132,7 +138,7 @@ export default function Navbar() {
                 <div className="w-1/2 p-8 border-r border-gray-100">
                   <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400 block mb-6">O Firmie</span>
                   <div className="flex flex-col gap-4">
-                    <Link href="/o-nas" className="text-xl font-bold hover:text-[#ff5a1f] transition-colors tracking-tighter">O Nas</Link>
+                    <Link href="/zespol" className="text-xl font-bold hover:text-[#ff5a1f] transition-colors tracking-tighter">Zespół</Link>
                     <Link href="/kontakt" className="text-xl font-bold hover:text-[#ff5a1f] transition-colors tracking-tighter">Kontakt</Link>
                     <Link href="/blog" className="text-xl font-bold hover:text-[#ff5a1f] transition-colors tracking-tighter">Blog</Link>
                   </div>
@@ -148,8 +154,15 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4 relative z-[160]">
+          {/* ПОЧТА ДЛЯ ДЕСКТОПА (Только иконка для чистоты) */}
           {!isMobileMenuOpen && (
-            <a href="tel:+48537240689" className="hidden xl:block text-[11px] font-bold tracking-widest text-white whitespace-nowrap">+48 537 240 689</a>
+            <a 
+              href="mailto:solsafe@solsafe.pl" 
+              title="solsafe@solsafe.pl"
+              className="hidden xl:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-[#ff5a1f] transition-all duration-300 text-white"
+            >
+              <MailIcon />
+            </a>
           )}
 
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="xl:hidden flex flex-col gap-1.5 p-2 focus:outline-none">
@@ -173,9 +186,16 @@ export default function Navbar() {
               ))}
             </div>
             <div className="mt-auto pt-10 border-t border-gray-100 flex flex-col gap-5">
-              <Link href="/o-nas" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-widest text-gray-400">O Nas</Link>
+              <Link href="/zespol" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-widest text-gray-400">Zespół</Link>
               <Link href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-widest text-[#ff5a1f]">Kontakt</Link>
-              <a href="tel:+48537240689" className="text-2xl font-light text-black mt-2 tracking-tight">+48 537 240 689</a>
+              
+              {/* ПОЧТА ДЛЯ МОБИЛОК */}
+              <a href="mailto:solsafe@solsafe.pl" className="flex items-center gap-3 text-2xl font-light text-black mt-2 tracking-tight group">
+                <div className="text-[#ff5a1f]">
+                  <MailIcon className="w-7 h-7" />
+                </div>
+                <span>solsafe@solsafe.pl</span>
+              </a>
             </div>
           </div>
         </div>

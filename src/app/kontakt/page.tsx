@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail } from 'react-icons/fi';
 
@@ -42,22 +43,32 @@ const contactData = [
 ];
 
 export default function KontaktPage() {
+  // Исправление гидратации: ждем, пока компонент загрузится в браузере
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Если компонент еще не примонтирован, возвращаем пустой контейнер с тем же фоном, 
+  // чтобы избежать "прыжков" и ошибок 404/белого экрана
+  if (!mounted) {
+    return <div className="min-h-screen bg-[#F7F6F2]" />;
+  }
+
   return (
     <main className="min-h-screen bg-[#F7F6F2] text-[#1a1a1a] pt-[120px] pb-32 px-6 md:px-12 font-sans">
       <div className="max-w-[1440px] mx-auto">
         
-
-
         {/* Сетка отделов */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {contactData.map((item, idx) => (
+          {contactData.map((item) => (
             <motion.section 
-              key={idx}
+              key={item.dept} // Используем название отдела как уникальный ключ
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              // Анимация при наведении на всю карточку
+              transition={{ duration: 0.4 }}
               whileHover={{ 
                 y: -10,
                 backgroundColor: "#ffffff",
@@ -73,14 +84,14 @@ export default function KontaktPage() {
               </div>
 
               <div className="space-y-12 flex-grow">
-                {item.people.map((person, pIdx) => (
-                  <div key={pIdx} className="flex flex-col group/person">
+                {item.people.map((person) => (
+                  <div key={person.mail} className="flex flex-col group/person">
                     <h3 className="text-2xl font-medium tracking-tight mb-4 group-hover/person:text-[#ff5a1f] transition-colors">
                       {person.name}
                     </h3>
                     <div className="flex flex-col space-y-3">
                       <a 
-                        href={`tel:${person.tel.replace(/\s/g, '')}`} 
+                        href={`tel:${person.tel?.replace(/\s/g, '')}`} 
                         className="text-sm font-light text-zinc-500 hover:text-zinc-900 flex items-center gap-3 transition-colors"
                       >
                         <FiPhone className="text-[#ff5a1f] opacity-50 group-hover/person:opacity-100 transition-opacity" />

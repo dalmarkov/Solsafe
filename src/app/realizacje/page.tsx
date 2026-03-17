@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import projectsData from '../data/projects.json';
@@ -18,7 +18,12 @@ const ALL_PROJECTS = (projectsData as any[]).filter(p => p.id) as Project[];
 export default function PortfolioPage() {
   const [filter, setFilter] = useState('WSZYSTKIE');
   const [currentPage, setCurrentPage] = useState(1);
+  const [mounted, setMounted] = useState(false);
   const projectsPerPage = 10;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const categories = ['WSZYSTKIE', 'FARMY PV', 'DLA DOMU', 'DLA FIRMY'];
 
@@ -31,6 +36,8 @@ export default function PortfolioPage() {
 
   const currentProjects = filteredData.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage);
   const totalPages = Math.ceil(filteredData.length / projectsPerPage);
+
+  if (!mounted) return <div className="min-h-screen bg-[#F7F6F2]" />;
 
   return (
     <motion.main 
@@ -76,7 +83,6 @@ export default function PortfolioPage() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  // Изменили h-[400px] на h-[280px] для мобилок
                   className="relative h-[280px] md:h-[550px] overflow-hidden rounded-sm md:rounded-none group cursor-pointer bg-zinc-200"
                 >
                   <img 
@@ -87,7 +93,6 @@ export default function PortfolioPage() {
                   <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-80" />
 
                   <div className="relative z-10 h-full w-full flex flex-col items-center justify-start p-6 md:p-10 text-center">
-                    {/* Адаптивный размер шрифта для заголовка */}
                     <h3 className="text-2xl md:text-6xl font-medium text-white mb-2 md:mb-3 tracking-tighter uppercase italic drop-shadow-lg leading-none">
                       {item.title}
                     </h3>
@@ -106,7 +111,7 @@ export default function PortfolioPage() {
         </motion.div>
       </section>
 
-      {/* НОМЕРА СТРАНИЦ */}
+      {/* ПАГИНАЦИЯ */}
       {totalPages > 1 && (
         <section className="flex justify-center items-center gap-3 md:gap-4 py-12 md:py-20 bg-[#F7F6F2]">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
@@ -149,20 +154,27 @@ export default function PortfolioPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
           <div className="relative w-[280%] md:w-[130%] aspect-[16/10] flex-shrink-0 -translate-y-[10%] md:-translate-y-[15%]">
             <img src="/img/map.jpg" alt="Mapa" className="w-full h-full object-fill opacity-40" />
+            
+            {/* ТОЧКИ НА КАРТЕ */}
             <div className="absolute inset-0 z-20 pointer-events-none">
+               {/* ГЛАВНАЯ ТОЧКА (ПОЛЬША) */}
                <div className="absolute top-[62%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
                   <span className="relative flex h-3 w-3 md:h-6 md:w-6">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff5a1f] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 md:h-6 md:w-6 bg-[#ff5a1f] shadow-[0_0_20px_#ff5a1f]"></span>
                   </span>
                </div>
+               
+               {/* ДОПОЛНИТЕЛЬНЫЕ ТОЧКИ (ЕВРОПА) */}
+               <div className="absolute top-[63%] left-[39%] h-1.5 w-1.5 md:h-2 md:w-2 bg-[#ff5a1f]/70 rounded-full"></div>
+               <div className="absolute top-[61%] left-[35%] h-1.5 w-1.5 md:h-2 md:w-2 bg-[#ff5a1f]/70 rounded-full"></div>
+               <div className="absolute top-[72%] left-[32%] h-1.5 w-1.5 md:h-2 md:w-2 bg-[#ff5a1f]/70 rounded-full"></div>
             </div>
           </div>
         </div>
 
         <div className="w-full py-10 md:py-24 bg-black flex justify-center">
           <div className="max-w-[1440px] w-full px-4 md:px-10">
-            {/* На мобилках используем сетку 2x3 или 3x2 для лучшей читаемости цифр */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
               {[
                 { n: "1193", t: "Instalacji <br/> w Polsce" },

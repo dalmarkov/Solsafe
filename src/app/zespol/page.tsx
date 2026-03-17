@@ -21,7 +21,7 @@ export default function Page() {
           className="text-5xl md:text-7xl font-light tracking-tighter mb-8"
         >
           {/* Меню заголовка в зависимости от страницы */}
-          O Nas
+          Zespół
         </motion.h1>
 
         <motion.div 
