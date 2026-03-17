@@ -54,27 +54,25 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-[#f9f9fb] text-zinc-900 overflow-x-hidden">
 
-      {/* HERO — фиксированное фото */}
-      <section className="relative w-full h-[90vh]" style={{ clipPath: 'inset(0 0 0 0)' }}>
-
-        <div className="fixed inset-0 w-full h-[90vh] z-0">
-
-          <Image
-            src="/img/dla_domu2.jpg"
-            alt="Dla Domu"
-            fill
-            priority
-            className="object-cover"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent backdrop-blur-[2px]" />
-
+      {/* HERO — Исправленный вариант с использованием sticky */}
+      <section className="relative w-full h-[90vh]">
+        {/* Контейнер теперь не имеет clip-path, он просто управляет положением */}
+        <div className="absolute inset-0 z-0">
+          <div className="sticky top-0 w-full h-[90vh] overflow-hidden">
+            <Image
+              src="/img/dla_domu2.jpg"
+              alt="Dla Domu"
+              fill
+              priority
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent backdrop-blur-[2px]" />
+          </div>
         </div>
 
+        {/* Текст поверх */}
         <div className="relative z-20 h-full flex flex-col justify-end pb-24 md:pb-32 px-8 md:px-24">
-
           <div className="max-w-[1600px] mx-auto w-full">
-
             <motion.h1
               initial="hidden"
               animate="show"
@@ -87,11 +85,8 @@ export default function Page() {
                 Twoja energia.
               </span>
             </motion.h1>
-
           </div>
-
         </div>
-
       </section>
 
       {/* CONTENT */}

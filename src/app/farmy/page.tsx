@@ -35,22 +35,23 @@ export default function Page() {
     <main className="min-h-screen bg-[#f9f9fb] font-sans overflow-x-hidden">
 
       {/* HERO */}
-      <section
-        className="relative w-full h-[90vh]"
-        style={{ clipPath: 'inset(0 0 0 0)' }}
-      >
-        {/* фиксированное фото */}
-        <div className="fixed inset-0 w-full h-[90vh] z-0">
-          <Image
-            src="/img/farmy.jpg"
-            alt="Farmy Fotowoltaiczne"
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent backdrop-blur-[2px]" />
+      <section className="relative w-full h-[90vh]">
+        {/* Эффект фиксации через sticky — избавляет от бага с прогрузкой */}
+        <div className="absolute inset-0 z-0">
+          <div className="sticky top-0 w-full h-[90vh] overflow-hidden">
+            <Image
+              src="/img/farmy.jpg"
+              alt="Farmy Fotowoltaiczne"
+              fill
+              priority
+              className="object-cover"
+            />
+            {/* Градиент и легкий блюр */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent backdrop-blur-[2px]" />
+          </div>
         </div>
 
+        {/* Контентная часть */}
         <div className="relative z-20 h-full flex flex-col justify-end pb-20 px-6 md:px-24">
           <div className="max-w-[1600px] mx-auto w-full">
             <motion.h1

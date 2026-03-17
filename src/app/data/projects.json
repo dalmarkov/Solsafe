@@ -1,0 +1,65 @@
+[
+    {
+    "_comment": "ИНСТРУКЦИЯ: id должен быть уникальным (число). category: 'FARMY PV', 'DLA DOMU' или 'DLA FIRMY'. img: главное фото (список). gallery: доп. фото (внутри). specs: технические пары ключ-значение."
+  },
+  { 
+    "id": 1, 
+    "category": "FARMY PV", 
+    "title": "Farma PV Poznań", 
+    "desc": "Moc 1.2 MWp. System nadążny.", 
+    "img": "/img/farmy.jpg",
+    "fullDesc": "text text text text text text text text text text text text",
+    "gallery": ["/img/farmy_1.jpg", "/img/farmy_2.jpg"],
+    "specs": { "Moc": "1.2 MWp", "Panele": "Jinko Solar", "Inwerter": "Huawei" }
+  },
+  { 
+    "id": 2, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 3, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 4, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 5, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 6, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  }
+]
