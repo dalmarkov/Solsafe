@@ -25,12 +25,12 @@
   { 
     "id": 3, 
     "category": "DLA FIRMY", 
-    "title": "Dom Jednorodzinny", 
+    "title": "Dom", 
     "desc": "6.5 kWp.", 
     "img": "/img/dla_domu2.jpg",
     "fullDesc": "text text text text text text text text text text text text.",
     "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh", "Inwerter": "huawei"}
   },
   { 
     "id": 4, 

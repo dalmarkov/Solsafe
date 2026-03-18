@@ -35,39 +35,37 @@ export default function Page() {
     <main className="min-h-screen bg-[#f9f9fb] font-sans overflow-x-hidden">
 
       {/* HERO */}
-      <section className="relative w-full h-[90vh]">
-        {/* Эффект фиксации через sticky — избавляет от бага с прогрузкой */}
-        <div className="absolute inset-0 z-0">
-          <div className="sticky top-0 w-full h-[90vh] overflow-hidden">
+        <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden flex flex-col justify-end">
+          {/* 1. ФОН (Абсолют, не влияет на размер секции) */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src="/img/farmy.jpg"
               alt="Farmy Fotowoltaiczne"
               fill
               priority
               className="object-cover"
+              sizes="100vw"
             />
-            {/* Градиент и легкий блюр */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent backdrop-blur-[2px]" />
           </div>
-        </div>
 
-        {/* Контентная часть */}
-        <div className="relative z-20 h-full flex flex-col justify-end pb-20 px-6 md:px-24">
-          <div className="max-w-[1600px] mx-auto w-full">
-            <motion.h1
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-white text-4xl md:text-8xl font-light tracking-tight mb-6 uppercase italic"
-            >
-              Farmy <br className="hidden md:block" />
-              <span className="font-medium not-italic text-white/90">
-                Fotowoltaiczne.
-              </span>
-            </motion.h1>
+          {/* 2. КОНТЕНТ (Прямое позиционирование) */}
+          {/* Убрал промежуточный div, теперь pb-20 и px-6 md:px-24 работают точно так же, как в разделе Firma */}
+          <div className="relative z-20 w-full max-w-[1600px] mx-auto pb-20 px-6 md:px-24">
+              <motion.h1
+                key="farmy-hero-title-v2"
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-white text-4xl md:text-8xl font-light tracking-tight mb-6 uppercase italic"
+              >
+                Farmy <br className="hidden md:block" />
+                <span className="font-medium not-italic text-white/90">
+                  Fotowoltaiczne.
+                </span>
+              </motion.h1>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* CONTENT */}
       <section className="relative z-30 w-full bg-[#f9f9fb] -mt-10 rounded-t-[24px] shadow-[0_-20px_50px_rgba(0,0,0,0.15)]">

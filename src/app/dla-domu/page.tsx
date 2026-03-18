@@ -12,35 +12,30 @@ const fadeUp = {
 const products = [
   { 
     title: "Instalacje", 
-    tag: "Energy Production",
     desc: "Maksymalna wydajność dzięki technologii mikrofalowników.",
     details: "Nasze systemy PV eliminują wpływ zacienienia, zapewniając do 25% więcej energii w skali roku. Oferujemy monitoring każdego panelu z osobna oraz 25-letnią gwarancję na sprzęt.",
     img: "/img/dla-domu/dla_domu1.jpg"
   },
   { 
     title: "Magazyny Energii", 
-    tag: "Energy Independence",
     desc: "Twoja własna energia dostępna o każdej porze dnia i nocy.",
     details: "Zwiększ autokonsumpcję i zabezpiecz swój dom przed przerwami w dostawie prądu. Dobieramy pojemność baterii idealnie pod Twój profil zużycia, zapewniając pełne bezpieczeństwo energetyczne.",
     img: "/img/dla-domu/magazyn.jpg"
   },
   { 
     title: "Elektryka & Automatyka", 
-    tag: "Smart Infrastructure",
     desc: "Nowoczesne instalacje elektryczne i systemy Smart Home.",
     details: "Od kompleksowego okablowania po inteligentne zarządzanie domem. Projektujemy systemy, które uczą się Twoich nawyków, oszczędzając energię i podnosząc komfort życia.",
     img: "/img/dla-domu/electric.jpg"
   },
   { 
     title: "Ładowarki elektryczne", 
-    tag: "E-mobility",
     desc: "Szybkie i bezpieczne ładowanie Twojego auta w domu.",
     details: "Stacje typu Wallbox zintegrowane z fotowoltaiką. Dzięki funkcji DLB (Dynamic Load Balancing) system automatycznie dostosowuje moc ładowania, chroniąc Twoją instalację przed przeciążeniem.",
     img: "/img/dla-domu/charger.jpg"
   },
   { 
     title: "Pompy Ciepła", 
-    tag: "Eco Heating",
     desc: "Czyste i tanie ogrzewanie zintegrowane z słońcem.",
     details: "Dobieramy urządzenia o najwyższym współczynniku wydajności COP. W połączeniu z instalacją fotowoltaiczną, pompa ciepła staje się niemal darmowym źródłem ogrzewania i ciepłej wody.",
     img: "/img/dla-domu/pomp.jpg"
@@ -55,25 +50,26 @@ export default function Page() {
     <main className="min-h-screen bg-[#f9f9fb] text-zinc-900 overflow-x-hidden">
 
       {/* HERO — Исправленный вариант с использованием sticky */}
-      <section className="relative w-full h-[90vh]">
-        {/* Контейнер теперь не имеет clip-path, он просто управляет положением */}
-        <div className="absolute inset-0 z-0">
-          <div className="sticky top-0 w-full h-[90vh] overflow-hidden">
-            <Image
-              src="/img/dla_domu2.jpg"
-              alt="Dla Domu"
-              fill
-              priority
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent backdrop-blur-[2px]" />
-          </div>
+      <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden">
+        {/* 1. ФОН: Стабильная картинка без sticky */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src="/img/dla_domu2.jpg"
+            alt="Dla Domu"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          {/* Твой оригинальный градиент и блюр */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent backdrop-blur-[2px]" />
         </div>
 
-        {/* Текст поверх */}
-        <div className="relative z-20 h-full flex flex-col justify-end pb-24 md:pb-32 px-8 md:px-24">
-          <div className="max-w-[1600px] mx-auto w-full">
+        {/* 2. КОНТЕНТ: Твой оригинальный текст и отступы */}
+        <div className="relative z-20 h-full w-full"> 
+          <div className="max-w-[1600px] mx-auto h-full flex flex-col justify-end pb-24 md:pb-32 px-8 md:px-24">
             <motion.h1
+              key="home-hero-title"
               initial="hidden"
               animate="show"
               variants={fadeUp}
@@ -100,9 +96,10 @@ export default function Page() {
               key={idx}
               variants={fadeUp}
               initial="hidden"
-              whileInView="show"
+              animate={idx === 0 ? "show" : undefined} 
+              whileInView={idx !== 0 ? "show" : undefined}
               viewport={{ once: true, margin: "-120px" }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7, delay: idx === 0 ? 0.5 : 0 }} // Небольшая задержка для первого блока, чтобы он шел после Hero
               className="max-w-[1440px] mx-auto px-6 md:px-24"
             >
 
@@ -110,11 +107,6 @@ export default function Page() {
 
                 {/* TEXT */}
                 <div className={idx % 2 !== 0 ? "lg:order-2" : ""}>
-
-                  <span className="text-[#ff5a1f] font-semibold text-[10px] uppercase tracking-[0.3em] mb-4 block">
-                    {item.tag}
-                  </span>
-
                   <h2 className="text-3xl md:text-5xl font-medium mb-6 tracking-tight leading-none">
                     {item.title}
                   </h2>

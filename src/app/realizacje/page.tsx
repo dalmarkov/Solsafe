@@ -24,13 +24,11 @@ export default function PortfolioPage() {
   const projectsRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
 
-  // 1. Скролл в самый верх при первой загрузке (из футера или другой страницы)
   useEffect(() => {
     setMounted(true);
     window.scrollTo(0, 0);
   }, []);
 
-  // 2. Скролл к карточкам ТОЛЬКО при смене страницы пагинации
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
@@ -38,7 +36,7 @@ export default function PortfolioPage() {
     }
 
     if (mounted && projectsRef.current) {
-      const yOffset = -120; // Отступ, чтобы заголовок секции не прилипал к верху
+      const yOffset = -120;
       const element = projectsRef.current;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
@@ -65,16 +63,38 @@ export default function PortfolioPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="relative min-h-screen bg-[#0f0f0f] pt-[100px] md:pt-[140px] overflow-x-hidden font-sans text-white"
+      className="relative min-h-screen bg-[#0f0f0f] overflow-x-hidden font-sans text-white"
     >
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.10] mix-blend-soft-light noise-bg"></div>
       
-      <div className="relative z-10">
-        {/* ЗАГОЛОВОК */}
-        <section className="px-6 md:px-12 mb-8 md:mb-16 text-center">
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-8 md:mb-12 max-w-3xl mx-auto leading-tight">
+      {/* 1. HERO СЕКЦИЯ (400PX) */}
+      <section className="relative w-full h-[400px] bg-black overflow-hidden flex items-center justify-center">
+        <img 
+          src="/img/realizacje/work.png" 
+          alt="Work" 
+          className="absolute inset-0 w-full h-full object-cover opacity-60" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0f0f0f]" />
+        
+        {/* ТЕКСТ С ГЛАВНОЙ СТРАНИЦЫ */}
+        <div className="relative z-10 px-6 w-full flex justify-center">
+          <motion.h1 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="text-white text-4xl md:text-6xl lg:text-[75px] font-light tracking-tight max-w-[1200px] text-center leading-[1.1]"
+          >
+            Nasze Realizacje
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* 2. КОНТЕНТ С НАЕЗДОМ */}
+      <div className="relative z-20 -mt-20 md:-mt-24">
+        {/* ФИЛЬТРЫ */}
+        <section className="px-6 md:px-12 mb-12 md:mb-16 text-center">
+          <p className="text-sm md:text-lg font-light text-white/60 mb-8 md:mb-12 max-w-2xl mx-auto italic">
             Poznaj niektóre z naszych zrealizowanych projektów.
-          </h2>
+          </p>
 
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((cat) => (
@@ -83,7 +103,7 @@ export default function PortfolioPage() {
                 onClick={() => setFilter(cat)}
                 className={`will-change-[backdrop-filter] px-10 py-4 border rounded-full font-medium transition-all duration-300 text-[10px] md:text-xs uppercase tracking-widest ${
                   filter === cat 
-                  ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
+                  ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.4)]' 
                   : 'bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white hover:text-black hover:border-white'
                 }`}
               >
@@ -106,7 +126,7 @@ export default function PortfolioPage() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="relative h-[280px] md:h-[550px] overflow-hidden rounded-sm md:rounded-none group cursor-pointer bg-zinc-900"
+                      className="relative h-[220px] md:h-[420px] overflow-hidden rounded-sm md:rounded-none group cursor-pointer bg-zinc-900"
                     >
                       <img 
                         src={item.img} 
@@ -116,10 +136,10 @@ export default function PortfolioPage() {
                       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-80" />
 
                       <div className="relative z-10 h-full w-full flex flex-col items-center justify-start p-6 md:p-10 text-center">
-                        <h3 className="text-2xl md:text-6xl font-medium text-white mb-2 md:mb-3 tracking-tighter uppercase italic drop-shadow-lg leading-none">
+                        <h3 className="text-2xl md:text-5xl font-medium text-white mb-2 md:mb-3 tracking-tighter uppercase italic drop-shadow-lg leading-none">
                           {item.title}
                         </h3>
-                        <p className="text-white/80 text-xs md:text-lg font-light max-w-[240px] md:max-w-sm drop-shadow-md line-clamp-2 md:line-clamp-none">
+                        <p className="text-white/80 text-xs md:text-base font-light max-w-[240px] md:max-w-sm drop-shadow-md line-clamp-2 md:line-clamp-none">
                           {item.desc}
                         </p>
                         
@@ -195,7 +215,7 @@ export default function PortfolioPage() {
                 {[
                   { n: "1193", t: "Instalacji <br/> w Polsce" },
                   { n: "24", t: "Instalacje <br/> w Europie" },
-                  { n: "911K", t: "Ułożonych <br/> paneli" },
+                  { n: "911K", t: "Ułożennych <br/> paneli" },
                   { n: "4", t: "Krajów <br/> Europy" },
                   { n: "13", t: "Lat <br/> doświadczenia" }
                 ].map((item, idx) => (

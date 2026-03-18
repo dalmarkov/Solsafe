@@ -60,10 +60,9 @@ export default function Navbar() {
     { name: 'Farmy fotowoltaiczne', href: '/farmy' },
     { name: 'Dla domu', href: '/dla-domu' },
     { name: 'Realizacje', href: '/realizacje' },
-    { name: 'Biuro Rachunkowe', href: '/biuro-rachunkowe' },
+    { name: 'Biuro Rachunkowe', href: 'https://ksiegowosc-solsafe.pl/' }, // Заменил на внешнюю ссылку
   ];
 
-  // Чистый SVG конверт
   const MailIcon = ({ className = "w-5 h-5" }) => (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
@@ -104,21 +103,42 @@ export default function Navbar() {
 
         {/* DESKTOP NAV */}
         <div className="hidden xl:flex items-center justify-center gap-x-8 h-full flex-grow mx-4">
-          {navLinks.map((item) => (
-            <Link 
-              key={item.name} 
-              href={item.href} 
-              className={`relative text-[10px] font-bold uppercase tracking-widest transition-colors h-full flex items-center group pt-1 whitespace-nowrap ${
-                pathname === item.href ? 'text-white' : 'text-gray-300 hover:text-white'
-              }`}
-            >
-              {item.name}
-              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transition-transform duration-300 origin-left ${
-                pathname === item.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-              }`}></span>
-            </Link>
-          ))}
+          {navLinks.map((item) => {
+            const isExternal = item.name === 'Biuro Rachunkowe';
+            const commonStyles = `relative text-[10px] font-bold uppercase tracking-widest transition-colors h-full flex items-center group pt-1 whitespace-nowrap ${
+              pathname === item.href ? 'text-white' : 'text-gray-300 hover:text-white'
+            }`;
+
+            if (isExternal) {
+              return (
+                <a 
+                  key={item.name} 
+                  href={item.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={commonStyles}
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+              );
+            }
+
+            return (
+              <Link 
+                key={item.name} 
+                href={item.href} 
+                className={commonStyles}
+              >
+                {item.name}
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transition-transform duration-300 origin-left ${
+                  pathname === item.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}></span>
+              </Link>
+            );
+          })}
           
+          {/* ОСТАЛЬНОЕ МЕНЮ БЕЗ ИЗМЕНЕНИЙ */}
           <div 
             className="relative h-full flex items-center cursor-pointer group pt-1" 
             onMouseEnter={() => setIsFirmaOpen(true)} 
@@ -144,7 +164,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div className="w-1/2 p-8 bg-gray-50/50 flex items-center">
-                  <p className="text-[11px] leading-relaxed text-gray-500 font-medium italic text-black">
+                  <p className="text-[11px] leading-relaxed text-gray-500 font-medium italic">
                     Solsafe to gwarancja jakości i bezpieczeństwa.
                   </p>
                 </div>
@@ -154,7 +174,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4 relative z-[160]">
-          {/* ПОЧТА ДЛЯ ДЕСКТОПА (Только иконка для чистоты) */}
           {!isMobileMenuOpen && (
             <a 
               href="mailto:solsafe@solsafe.pl" 
@@ -179,17 +198,30 @@ export default function Navbar() {
         <div className="h-full overflow-y-auto pt-28 pb-12 px-8 flex flex-col bg-white">
           <div className="flex flex-col min-h-max text-black">
             <div className="flex flex-col space-y-7 mb-12">
-              {navLinks.map((item) => (
-                <Link key={item.name} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-bold uppercase tracking-tighter">
-                  {item.name}
-                </Link>
-              ))}
+              {navLinks.map((item) => {
+                if (item.name === 'Biuro Rachunkowe') {
+                  return (
+                    <a 
+                      key={item.name} 
+                      href={item.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-3xl font-bold uppercase tracking-tighter"
+                    >
+                      {item.name}
+                    </a>
+                  );
+                }
+                return (
+                  <Link key={item.name} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-bold uppercase tracking-tighter">
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
             <div className="mt-auto pt-10 border-t border-gray-100 flex flex-col gap-5">
               <Link href="/zespol" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-widest text-gray-400">Zespół</Link>
               <Link href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-widest text-[#ff5a1f]">Kontakt</Link>
-              
-              {/* ПОЧТА ДЛЯ МОБИЛОК */}
               <a href="mailto:solsafe@solsafe.pl" className="flex items-center gap-3 text-2xl font-light text-black mt-2 tracking-tight group">
                 <div className="text-[#ff5a1f]">
                   <MailIcon className="w-7 h-7" />
