@@ -24,7 +24,7 @@
   },
   { 
     "id": 3, 
-    "category": "DLA DOMU", 
+    "category": "DLA FIRMY", 
     "title": "Dom Jednorodzinny", 
     "desc": "6.5 kWp.", 
     "img": "/img/dla_domu2.jpg",
@@ -61,5 +61,105 @@
     "fullDesc": "text text text text text text text text text text text text.",
     "gallery": ["/img/dom_1.jpg"],
     "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 7, 
+    "category": "FARMY PV", 
+    "title": "Farma PV Poznań", 
+    "desc": "Moc 1.2 MWp. System nadążny.", 
+    "img": "/img/farmy.jpg",
+    "fullDesc": "text text text text text text text text text text text text",
+    "gallery": ["/img/farmy_1.jpg", "/img/farmy_2.jpg"],
+    "specs": { "Moc": "1.2 MWp", "Panele": "Jinko Solar", "Inwerter": "Huawei" }
+  },
+  { 
+    "id": 8, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 9, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 10, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 11, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 12, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 13, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 14, 
+    "category": "DLA DOMU", 
+    "title": "Dom Jednorodzinny", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 15, 
+    "category": "FARMY PV", 
+    "title": "Farma Bielsko-Biala", 
+    "desc": "6.5 kWp.", 
+    "img": "/img/dla_domu2.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/dom_1.jpg"],
+    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
+  },
+  { 
+    "id": 16, 
+    "category": "FARMY PV", 
+    "title": "Farma PV Poznań", 
+    "desc": "1.2 MWp.", 
+    "img": "/img/farmy.jpg",
+    "fullDesc": "text text text text text text text text text text text text.",
+    "gallery": ["/img/farmy_1.jpg", "/img/farmy_2.jpg"],
+    "specs": { "Moc": "1.2 MWp", "Panele": "Jinko Solar", "Inwerter": "Huawei" }
   }
 ]
