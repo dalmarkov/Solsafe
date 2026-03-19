@@ -229,7 +229,7 @@ export default function PortfolioPage() {
           <div className="flex animate-marquee whitespace-nowrap">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="flex items-center">
-                {['Huawei', 'Growatt', 'Fronius', 'Ja Solar', 'Enphase', 'Sofar'].map((brand) => (
+                {['Huawei', 'Growatt', 'Grodno', 'Ja Solar', 'Enphase', 'Sofar'].map((brand) => (
                   <span key={brand} className="mx-6 md:mx-12 text-[9px] md:text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase">
                     {brand}
                   </span>

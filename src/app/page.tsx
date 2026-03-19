@@ -48,7 +48,7 @@ export default function Home() {
           <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Inwestycje w OZE na dużą skalę.</p>
           <Link href="/farmy">
             <button className="bg-white/30 will-change-[backdrop-filter] px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
-              Dowiedz się больше
+              Dowiedz się więcej
             </button>
           </Link>
         </motion.div>
@@ -63,7 +63,7 @@ export default function Home() {
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
           <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Niezależność</span>
           <h2 className="text-white text-5xl md:text-7xl font-light mb-8 tracking-tight">Dla Domu</h2>
-          <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Czysta energia для твоей семьи.</p>
+          <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Czysta energia dla Twojej rodziny.</p>
           <Link href="/dla-domu">
             <button className="bg-white/30 will-change-[backdrop-filter] px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
               Bezpłatna wycena
@@ -108,9 +108,12 @@ export default function Home() {
             <h3 className="text-white text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">Wszystko o energii</h3>
             <p className="text-white/70 text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Fotowoltaika bez tajemnic. Odpowiedzi na najczęstsze pytania.</p>
             
-            <button className="bg-white/30 will-change-[backdrop-filter] px-10 py-4 rounded-full font-medium text-[10px] uppercase tracking-[0.2em] transition-all duration-300 border border-white text-white group-hover:bg-white group-hover:text-black">
-              Dowiedz się więcej
-            </button>
+            {/* ДОБАВЛЕНО: Переход на страницу FAQ/Блога */}
+            <Link href="/wszystko-o-energii">
+              <button className="bg-white/30 will-change-[backdrop-filter] px-10 py-4 rounded-full font-medium text-[10px] uppercase tracking-[0.2em] transition-all duration-300 border border-white text-white group-hover:bg-white group-hover:text-black">
+                Dowiedz się więcej
+              </button>
+            </Link>
           </motion.div>
         </div>
 
