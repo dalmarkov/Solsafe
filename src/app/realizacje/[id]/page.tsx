@@ -110,7 +110,7 @@ export default function ProjectDetailPage() {
               
               <Link 
                 href="/kontakt" 
-                className="w-full py-5 bg-black text-white text-[11px] font-extrabold uppercase tracking-[0.2em] rounded-full hover:bg-[#ff5a1f] transition-all duration-300 shadow-lg hover:shadow-[#ff5a1f]/20"
+                className="w-full py-5 bg-black text-white text-[11px] font-extrabold uppercase tracking-[0.2em] rounded-full hover:bg-[#ff5a1f] transition-all duration-300 shadow-lg hover:shadow-[#ff5a1f]/20 flex justify-center"
               >
                 Skontaktuj się
               </Link>

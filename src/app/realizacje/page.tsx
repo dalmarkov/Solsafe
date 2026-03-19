@@ -157,7 +157,7 @@ export default function PortfolioPage() {
 
         {/* ПАГИНАЦИЯ */}
         {totalPages > 1 && (
-          <section className="flex justify-center items-center gap-3 md:gap-4 py-12 md:py-20">
+          <section className="flex justify-center items-center gap-3 md:gap-4 py-16 md:py-10">
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
               <button
                 key={pageNum}
@@ -173,21 +173,6 @@ export default function PortfolioPage() {
             ))}
           </section>
         )}
-
-        {/* БЕГУЩАЯ СТРОКА */}
-        <section className="relative w-screen left-1/2 -translate-x-1/2 py-4 bg-white overflow-hidden border-none mt-0">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="flex items-center">
-                {['Huawei', 'Growatt', 'Fronius', 'Ja Solar', 'Enphase', 'Sofar'].map((brand) => (
-                  <span key={brand} className="mx-6 md:mx-12 text-[9px] md:text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase">
-                    {brand}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* КАРТА И ЦИФРЫ */}
         <section className="relative w-screen left-1/2 -translate-x-1/2 bg-black flex flex-col items-center overflow-hidden">
@@ -238,6 +223,21 @@ export default function PortfolioPage() {
           </div>
         </section>
       </div>
+
+      {/* БЕГУЩАЯ СТРОКА */}
+        <section className="relative w-screen left-1/2 -translate-x-1/2 py-4 bg-white overflow-hidden border-none mt-0">
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="flex items-center">
+                {['Huawei', 'Growatt', 'Fronius', 'Ja Solar', 'Enphase', 'Sofar'].map((brand) => (
+                  <span key={brand} className="mx-6 md:mx-12 text-[9px] md:text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase">
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
 
       <style jsx global>{`
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }

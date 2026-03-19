@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link' // Добавлено
 
 const containerVariants = {
   hidden: { opacity: 1 },
@@ -153,11 +154,11 @@ export default function Page() {
               className="mt-28 pt-16 border-t border-zinc-200 flex flex-col items-center text-center"
             >
 
-              <button className="w-full md:w-fit px-16 py-6 bg-black text-white rounded-full text-[12px] uppercase tracking-[0.3em] font-bold hover:bg-[#ff5a1f] transition-all duration-500 shadow-2xl hover:scale-[1.03]">
-
-                Skontaktuj się z ekspertem
-
-              </button>
+              <Link href="/kontakt">
+                <button className="px-14 py-4 bg-black text-white rounded-full text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:bg-[#ff6b00] shadow-[0_4px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_10px_25px_rgba(255,107,0,0.25)] active:scale-95">
+                  Skontaktuj się z ekspertem
+                </button>
+              </Link>
 
             </motion.div>
 
