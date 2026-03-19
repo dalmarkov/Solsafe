@@ -36,7 +36,7 @@ const products = [
   { 
     id: 3,
     title: "Ładowarki elektryczne", 
-    details: "Stacje typu Wallbox zintegrowane z fotowoltaiką. Funkcja DLB automatycznie dostosowuje moc ładowania, chroniąc instalację перед przeciążeniem.",
+    details: "Stacje typu Wallbox zintegrowane z fotowoltaiką. Funkcja DLB automatycznie dostosowuje moc ładowania, chroniąc instalację przed przeciążeniem.",
     img: "/img/dla-domu/charger.jpg"
   },
   { 

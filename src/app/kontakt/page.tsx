@@ -158,7 +158,7 @@ export default function KontaktPage() {
 
                 <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
                   <div className="relative group">
-                    <input name="name" required type="text" placeholder="Imię и Nazwisko" className="w-full bg-transparent border-b border-zinc-300 py-5 outline-none focus:border-[#ff5a1f] transition-colors placeholder:text-zinc-400 font-light text-xl" />
+                    <input name="name" required type="text" placeholder="Imię i Nazwisko" className="w-full bg-transparent border-b border-zinc-300 py-5 outline-none focus:border-[#ff5a1f] transition-colors placeholder:text-zinc-400 font-light text-xl" />
                     <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#ff5a1f] group-focus-within:w-full transition-all duration-500" />
                   </div>
                   <div className="relative group">
