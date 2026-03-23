@@ -23,14 +23,14 @@ export default function Hero() {
       <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
         
         <h1 className="text-white text-4xl md:text-6xl lg:text-[75px] font-light tracking-tight max-w-[1200px] mb-8 leading-[1.1]">
-          Nastał nowy dzień w historii energii słonecznej z Solsafe
+          Napisz nową historię swojej energii z Solsafe
         </h1>
 
         <p className="text-white/90 text-lg md:text-2xl font-light max-w-[850px] mb-12 leading-relaxed">
-          Wytwarzaj, wykorzystuj, magazynuj i sprzedawaj własną energię.
+          Produkuj, przechowuj i zarządzaj energią na własnych zasadach.
         </p>
 
-        {/* КНОПКИ */}
+        {/* КНОПКИ - закомментированы, так как в дизайне их нет, но оставлены для возможного будущего использования
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <button className="min-w-[220px] px-10 py-4 bg-white text-black rounded-full font-medium text-lg hover:bg-gray-200 transition-all duration-300">
             Dowiedz się więcej
@@ -38,7 +38,7 @@ export default function Hero() {
           <button className="min-w-[220px] px-10 py-4 border border-white text-white rounded-full font-medium text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-md">
             Obejrzyj film
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Нижний градиент для плавного перехода к контенту */}
