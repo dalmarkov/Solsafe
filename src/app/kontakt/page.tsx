@@ -8,36 +8,41 @@ const contactData = [
   {
     dept: "Zarząd",
     people: [
-      { name: "Krzysztof Mazur", tel: "+48 537 240 689", mail: "k.mazur@solsafe.pl" },
-      { name: "Aleksandra Krzysteczko", tel: "+48 532 456 626", mail: "a.krzysteczko@solsafe.pl" }
+      { name: "Krzysztof Mazur", tels: ["+48 537 240 689"], mail: "k.mazur@solsafe.pl" }
     ]
   },
   {
     dept: "Dział Finansowy",
     people: [
-      { name: "Aleksandra Krzysteczko", tel: "+48 532 456 626", mail: "a.krzysteczko@solsafe.pl" },
-      { name: "Marta Tarnawa", tel: "+48 532 560 839", mail: "m.tarnawa@solsafe.pl" },
-      { name: "Andżelika Śliwa", tel: "+48 532 356 374", mail: "a.sliwa@solsafe.pl" }
+      { name: "Aleksandra Krzysteczko", tels: ["+48 532 456 626"], mail: "a.krzysteczko@solsafe.pl" },
+      { name: "Marta Tarnawa", tels: ["+48 532 560 839"], mail: "m.tarnawa@solsafe.pl" },
+      { name: "Andżelika Śliwa", tels: ["+48 532 356 374"], mail: "a.sliwa@solsafe.pl" }
     ]
   },
   {
     dept: "Dział techniczny",
     people: [
-      { name: "Adrian Kanik", tel: "+48 532 455 298", mail: "a.kanik@solsafe.pl" },
-      { name: "Ireneusz Wiecha", tel: "+48 539 268 390", mail: "i.wiecha@solsafe.pl" }
+      { name: "Adrian Kanik", tels: ["+48 532 455 298"], mail: "a.kanik@solsafe.pl" },
+      { name: "Ireneusz Wiecha", tels: ["+48 539 268 390"], mail: "i.wiecha@solsafe.pl" },
+      { name: "Wojciech Szpoton", tels: ["+48 533 262 304"], mail: "w.szpoton@solsafe.pl" }
     ]
   },
   {
     dept: "Zamówienia Publiczne",
     people: [
-      { name: "Andrzej Pieróg", tel: "+48 532 545 564", mail: "przetargi@solsafe.pl" },
-      { name: "Krzysztof Mazur", tel: "+48 537 240 689", mail: "k.mazur@solsafe.pl" }
+      { name: "Andrzej Pieróg", tels: ["+48 532 545 564"], mail: "przetargi@solsafe.pl" },
+      { name: "Krzysztof Mazur", tels: ["+48 537 240 689"], mail: "k.mazur@solsafe.pl" }
     ]
   },
   {
     dept: "Serwis",
     people: [
-      { name: "Wsparcie Serwisowe", tel: "+48 537 240 689", mail: "serwis@solsafe.pl" }
+      { 
+        name: "Wsparcie Serwisowe", 
+        // Добавлены ваши 2 новых номера в массив
+        tels: ["+48 537 240 689", "+48 532 455 298", "+48 533 262 304"], 
+        mail: "serwis@solsafe.pl" 
+      },
     ]
   }
 ];
@@ -107,17 +112,25 @@ export default function KontaktPage() {
               </div>
 
               <div className="space-y-10">
-                {item.people.map((person) => (
-                  <div key={person.mail} className="flex flex-col group/person">
+                {item.people.map((person, pIdx) => (
+                  <div key={pIdx} className="flex flex-col group/person">
                     <h3 className="text-xl md:text-2xl font-medium tracking-tight mb-3 group-hover/person:text-[#ff5a1f] transition-colors">
                       {person.name}
                     </h3>
                     <div className="flex flex-col space-y-2">
-                      <a href={`tel:${person.tel}`} className="text-xs md:text-sm font-light text-zinc-500 hover:text-black flex items-center gap-3 transition-colors">
-                        <FiPhone className="text-[#ff5a1f]" /> {person.tel}
-                      </a>
+                      {/* Рендеринг всех номеров телефона из массива */}
+                      {person.tels.map((tel, tIdx) => (
+                        <a 
+                          key={tIdx} 
+                          href={`tel:${tel.replace(/\s+/g, '')}`} 
+                          className="text-xs md:text-sm font-light text-zinc-500 hover:text-black flex items-center gap-3 transition-colors"
+                        >
+                          <FiPhone className="text-[#ff5a1f] shrink-0" /> {tel}
+                        </a>
+                      ))}
+                      
                       <a href={`mailto:${person.mail}`} className="text-xs md:text-sm font-light text-zinc-400 hover:text-[#ff5a1f] flex items-center gap-3 transition-colors break-all">
-                        <FiMail className="opacity-50" /> {person.mail}
+                        <FiMail className="opacity-50 shrink-0" /> {person.mail}
                       </a>
                     </div>
                   </div>

@@ -31,7 +31,7 @@ export default function Footer() {
 
         {/* НАВИГАЦИЯ (ОБНОВЛЕННЫЕ ПУТИ) */}
         <div className="space-y-6">
-          <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/20">Nawigacja</h4>
+          <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-black">Nawigacja</h4>
           <ul className="text-[10px] space-y-4 text-gray-500 font-bold uppercase tracking-[0.2em]">
             <li>
               <Link href="/dla-firmy" className="hover:text-black transition">Dla firmy</Link>
@@ -60,7 +60,7 @@ export default function Footer() {
 
         {/* КОНТАКТЫ */}
         <div className="space-y-6">
-          <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/20">Kontakt</h4>
+          <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-black">Kontakt</h4>
           <div className="space-y-2">
             <p className="text-sm text-gray-500 font-light ">ul. Bystrzańska 70,
 43-309 Bielsko-Biała</p>
