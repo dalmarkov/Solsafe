@@ -3,163 +3,120 @@
     "_comment": "ИНСТРУКЦИЯ: id должен быть уникальным (число). category: 'FARMY PV', 'DLA DOMU' или 'DLA FIRMY'. img: главное фото (список). gallery: доп. фото (внутри). specs: технические пары ключ-значение."
   },
   { 
-    "id": 1, 
-    "category": "FARMY PV", 
-    "title": "Farma PV Poznań", 
-    "desc": "Moc 1.2 MWp. System nadążny.", 
-    "img": "/img/farmy.jpg",
-    "fullDesc": "text text text text text text text text text text text text",
-    "gallery": ["/img/farmy_1.jpg", "/img/farmy_2.jpg"],
-    "specs": { "Moc": "1.2 MWp", "Panele": "Jinko Solar", "Inwerter": "Huawei" }
-  },
-  { 
-    "id": 2, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 3, 
-    "category": "DLA FIRMY", 
-    "title": "Dom", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh", "Inwerter": "huawei"}
-  },
-  { 
-    "id": 4, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 5, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 6, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 7, 
-    "category": "FARMY PV", 
-    "title": "Farma PV Poznań", 
-    "desc": "Moc 1.2 MWp. System nadążny.", 
-    "img": "/img/farmy.jpg",
-    "fullDesc": "text text text text text text text text text text text text",
-    "gallery": ["/img/farmy_1.jpg", "/img/farmy_2.jpg"],
-    "specs": { "Moc": "1.2 MWp", "Panele": "Jinko Solar", "Inwerter": "Huawei" }
-  },
-  { 
-    "id": 8, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 9, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 10, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 11, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 12, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 13, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 14, 
-    "category": "DLA DOMU", 
-    "title": "Dom Jednorodzinny", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 15, 
-    "category": "FARMY PV", 
-    "title": "Farma Bielsko-Biala", 
-    "desc": "6.5 kWp.", 
-    "img": "/img/dla_domu2.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/dom_1.jpg"],
-    "specs": { "Moc": "6.5 kWp", "Panele": "Full Black", "Bateria": "10kWh" }
-  },
-  { 
-    "id": 16, 
-    "category": "FARMY PV", 
-    "title": "Farma PV Poznań", 
-    "desc": "1.2 MWp.", 
-    "img": "/img/farmy.jpg",
-    "fullDesc": "text text text text text text text text text text text text.",
-    "gallery": ["/img/farmy_1.jpg", "/img/farmy_2.jpg"],
-    "specs": { "Moc": "1.2 MWp", "Panele": "Jinko Solar", "Inwerter": "Huawei" }
+  "id": 1, 
+  "category": "FARMY PV", 
+  "title": "Francja. Chateau Gabillon", 
+  "desc": "Moc: 5 MWp", 
+  "img": "/img/realizacje/Chateau_Gabillon/SAVE_20190730_184815 (1).jpg",
+  "fullDesc": "Realizacja farmy fotowoltaicznej Chateau Gabillon we Francji to projekt łączący zaawansowaną technologię z dbałością o środowisko naturalne. Instalacja o mocy 5 MWp została zaprojektowana tak, aby maksymalnie wykorzystać potencjał nasłonecznienia regionu, przy jednoczesnym zachowaniu estetyki lokalnego krajobrazu. System składa się z ponad 11 tysięcy wysokowydajnych paneli marki SunPower, które słyną z wyjątkowej trwałości i efektywności. Za stabilną pracę i optymalne zarządzanie energią odpowiadają inwertery Huawei. Projekt ten jest doskonałym przykładem skalowalnego odnawialnego źródła energii, które wspiera lokalną infrastrukturę energetyczną czystą i darmową energią ze słońca.",
+  "gallery": [
+    "/img/realizacje/Chateau_Gabillon/IMG_20190711_212549.jpg", 
+    "/img/realizacje/Chateau_Gabillon/IMG_20190618_154407.jpg"
+  ],
+  "specs": { 
+    "Moc": "5 MWp", 
+    "Panele": "SunPower 435 Wp", 
+    "Inwerter": "Huawei",
+    "Rok": "2018", 
+    "Ilość paneli": "11494" 
   }
+},
+  { 
+  "id": 2, 
+  "category": "FARMY PV", 
+  "title": "Francja. Peyroules", 
+  "desc": "Moc: 24 MWp", 
+  "img": "/img/realizacje/Peyroules/org_4576c9e6ce41e521_1684852720000 (2).jpg",
+  "fullDesc": "Farma fotowoltaiczna w Peyroules we Francji to jedna z naszych kluczowych realizacji o dużej skali, generująca moc 24 MWp. Projekt ten wymagał zaawansowanej inżynierii oraz montażu ponad 55 tysięcy modułów Jinko Solar na zróżnicowanym terenie. Dzięki wykorzystaniu technologii Huawei, system charakteryzuje się wysoką niezawodnością i inteligentnym monitoringiem produkcji energii. Inwestycja ta stanowi istotny punkt na mapie odnawialnych źródeł energii w regionie, dostarczając czystą energię do tysięcy gospodarstw domowych i realnie wpływając na redukcję emisji CO2. Kluczowe fakty: \n- Powierzchnia instalacji obejmuje kilkadziesiąt hektarów. \n- Roczna produkcja energii jest w stanie zasilić miasto średniej wielkości. \n- Zastosowano zaawansowane systemy montażowe odporne na zmienne warunki atmosferyczne.",
+  "gallery": [
+    "/img/realizacje/Peyroules/org_6c536b930d19ea6b_1684852486000 (1).jpg", 
+    "/img/realizacje/Peyroules/org_1a002c0a0e69d800_1684852964000 (2).jpg"
+  ],
+  "specs": { 
+    "Moc": "24 MWp", 
+    "Panele": "Jinko Solar 440 Wp", 
+    "Inwerter": "Huawei",
+    "Rok": "2022", 
+    "Ilość paneli": "55494" 
+  }
+},
+  { 
+  "id": 3, 
+  "category": "DLA FIRMY", 
+  "title": "Polska. Kraków",
+  "desc": "Moc: 1 MWp", 
+  "img": "/img/realizacje/Krakow/IMG_20210527_102432 (1).jpg",
+  "fullDesc": "Realizacja w Krakowie o mocy 1 MWp to dowód na najwyższe kompetencje naszego zespołu w dostarczaniu rozwiązań energetycznych dla wymagającego sektora przemysłowego. Projekt ten został wykonany z dbałością o każdy detale, od precyzyjnego planowania logistyki w aglomeracji miejskiej, po finalny montaż ponad 2300 paneli Jinko Solar. Nasza ekipa wykazała się ogromnym profesjonalizmem, terminowością oraz dbałością o standardy bezpieczeństwa, co zaowocowało powstaniem wysoce wydajnej instalacji wspieranej przez niezawodną technologię Huawei. Jesteśmy dumni, że po raz kolejny dostarczyliśmy system, który nie tylko redukuje koszty energii, ale staje się wizytówką nowoczesnego i ekologicznego przedsiębiorstwa w stolicy Małopolski.",
+  "gallery": [
+    "/img/realizacje/Krakow/IMG_20210507_121816.jpg", 
+    "/img/realizacje/Krakow/IMG_20210507_121756.jpg"
+  ],
+  "specs": { 
+    "Moc": "1 MWp", 
+    "Panele": "Jinko Solar 440 Wp", 
+    "Inwerter": "Huawei",
+    "Rok": "2022", 
+    "Ilość paneli": "2300" 
+  }
+},
+  { 
+  "id": 4, 
+  "category": "FARMY PV", 
+  "title": "Francja. Douzy",
+  "desc": "Moc: 51 MWp", 
+  "img": "/img/realizacje/Douzy/605207516_1746402062962845_8045352210084338509_n.jpg",
+  "fullDesc": "Projekt w miejscowości Douzy we Francji to jedna z naszych najbardziej prestiżowych realizacji na rynku europejskim. Budowa farmy fotowoltaicznej o imponującej mocy 51 MWp wymagała precyzyjnej logistyki oraz najwyższych standardów wykonawstwa. Instalacja składa się z blisko 70 tysięcy paneli Jinko Solar o mocy 730 Wp każdy, co czyni ją potężnym źródłem czystej energii dla regionu. Całość systemu została zintegrowana z zaawansowanymi rozwiązaniami inwerterowymi marki Huawei, zapewniając maksymalną wydajność i inteligentne zarządzanie przepływem energii. Realizacja ta potwierdza nasze kompetencje w budowie wielkoskalowych elektrowni słonecznych, które stanowią kluczowy element transformacji energetycznej Europy.",
+  "gallery": [
+    "/img/realizacje/Douzy/605764538_1740770560192662_2721502589677530110_n.jpg", 
+    "/img/realizacje/Douzy/org_5c36438e1647bfd6_1756741372000.jpg", 
+    "/img/realizacje/Douzy/org_531d83ec870f90d5_1756741792000.jpg"
+  ],
+  "specs": { 
+    "Moc": "51 MWp", 
+    "Panele": "Jinko Solar 730 Wp", 
+    "Inwerter": "Huawei",
+    "Rok": "2026", 
+    "Ilość paneli": "69863" 
+  }
+},
+  { 
+  "id": 5, 
+  "category": "DLA FIRMY", 
+  "title": "Polska. Mesznary",
+  "desc": "Moc: 611 kWp", 
+  "img": "/img/realizacje/Mesznary/org_6d38428e77bdc177_1673957568000.jpg",
+  "fullDesc": "Realizacja dla firmy Agrecol w miejscowości Mesznary to przykład nowoczesnej mikroinstalacji przemysłowej. Projekt obejmował kompleksowe wykonanie systemu fotowoltaicznego o mocy 60 kWp, mającego na celu optymalizację kosztów operacyjnych przedsiębiorstwa. Zakres prac obejmował doradztwo techniczne, przygotowanie projektu budowlanego oraz montaż konstrukcji i podzespołów. System został oparty na wysokowydajnych panelach Jinko Solar oraz niezawodnej technologii inwerterowej Huawei, co gwarantuje stabilną produkcję energii przez wiele lat. Dzięki tej inwestycji zakład Agrecol znacząco zredukował swój ślad węglowy, stawiając na ekologiczne i odnawialne źródła energii.",
+  "gallery": [
+    "/img/realizacje/Mesznary/org_25bec7fe12f8d2e9_1673957676000 (1).jpg", 
+    "/img/realizacje/Mesznary/org_b8f854dbd5ed8bc5_1673957752000 (1).jpg", 
+    "/img/realizacje/Mesznary/org_de951cd80c50c92e_1673957648000 (1).jpg"
+  ],
+  "specs": { 
+    "Moc": "611 kWp", 
+    "Panele": "Jinko Solar 605 Wp", 
+    "Inwerter": "Huawei",
+    "Rok": "2022", 
+    "Ilość paneli": "1000" 
+  }
+},
+  { 
+  "id": 6, 
+  "category": "DLA FIRMY", 
+  "title": "Polska. Wieruszów",
+  "desc": "Moc: 1 MWp", 
+  "img": "/img/realizacje/Wieruszow/org_eaada71dc9f4b15f_1687774334000 (1).jpg",
+  "fullDesc": "Madonis czyli polska firma rodzinna, producent chemii gospodarczej i kosmetyków naturalnych, myjących, pielęgnacyjnych, z siedzibą w Wieruszowie. Na wymienionym obiekcie przeprowadziliśmy pełny proces związany z budową farmy fotowoltaicznej o mocy do 1 MWp. Od pozwolenia na budowę, projektu do zakończenia budowy. Instalacja oparta jest o 4 falowniki Huawei 215 KTL M0, a także przeszło 1652 panele fotowoltaiczne Jinko Solar 605 Wp. Za konstrukcję odpowiadają bloki betonowe produkcji Solano Elements Sp. Z o.o.",
+  "gallery": [
+    "/img/realizacje/Wieruszow/org_c558184d4fe549d1_1687774352000 (1).jpg", 
+    "/img/realizacje/Wieruszow/org_a448afa784ee249b_1687774510000 (1).jpg", 
+    "/img/realizacje/Wieruszow/org_4b83d0b7a70aeffc_1687774406000 (1).jpg"
+  ],
+  "specs": { 
+    "Moc": "1 MWp", 
+    "Panele": "Jinko Solar 605 Wp", 
+    "Inwerter": "Huawei",
+    "Rok": "2023", 
+    "Ilość paneli": "1652" 
+  }
+}
 ]
