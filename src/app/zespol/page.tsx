@@ -1,12 +1,12 @@
 'use client';
 
 import { motion, useScroll, useSpring, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const paragraphs = [
   "Solsafe – generalny wykonawca inwestycji fotowoltaicznych. Solsafe to doświadczony generalny wykonawca (EPC), realizujący kompleksowe inwestycje fotowoltaiczne dla wymagających klientów biznesowych oraz projektów wielkoskalowych. Od 2013 roku firma konsekwentnie rozwija swoje kompetencje w obszarze odnawialnych źródeł energii.",
   "Jako generalny wykonawca Solsafe odpowiada za pełen cykl inwestycyjny – od koncepcji i analiz technicznych, przez projektowanie i optymalizację, aż po realizację, uruchomienie oraz obsługę formalną i dokumentacyjną. Taki model współpracy zapewnia inwestorom jeden punkt odpowiedzialności.",
-  "Fundamentem działalności Solsafe jest własne zaplecze wykonawcze – wyspecjalizowane zespoły montażowe, park maszynowy oraz doświadczona kadra inżynierska. Dzięki temu firma realizuje inwestycje w sposób bezpośredni i w pełni kontроlowany.",
+  "Fundamentem działalności Solsafe jest własne zaplecze wykonawcze – wyspecjalizowane zespoły montażowe, park maszynowy oraz doświadczona kadra inżynierska. Dzięki temu firma realizuje inwestycje w sposób bezpośredni i w pełni kontrolowany.",
   "Solsafe koncentruje się na projektach dla sektora biznesowego, farmach fotowoltaicznych oraz instalacjach przemysłowych, gdzie kluczowe znaczenie mają niezawodność, skalowalność oraz maksymalizacja efektywności inwestycji. Każdy projekt jest indywidualnie optymalizowany z wykorzystaniem komponentów klasy TIER 1.",
   "Solsafe to partner dla inwestorów, którzy oczekują więcej niż standardowej realizacji – to generalny wykonawca, który łączy doświadczenie, kontrolę i odpowiedzialność, dostarczając projekty energetyczne o wysokiej wartości i długoterminowej stabilności."
 ];
@@ -22,11 +22,11 @@ const values = [
   },
   {
     title: "Ewolucja Technologiczna",
-    text: "Wyznaczamy standardy, zamiast za nimi podążać. Korzystamy wyłącznie z technologii od najstabilniejszych światowych producentów oraz autorskich rozwiązań inżynieryjnych, by zapewnić maksymalną sprawność i bezpieczeństwo Twojej inwestycji"
+    text: "Wyznaczamy standardy, zamiast za nimi podążać. Korzystamy wyłącznie z technologii od najstabilniejszych światowych producentów oraz autorskich rozwiązań inżynieryjnych."
   },
   {
     title: "Synergia Kompetencji",
-    text: "Własne zaplecze wykonawcze i kadra inżynierska pracują jako jeden organizм. Eliminujemy bariery komunikacyjne, by dostarczać wielkoskalowe projekty terminowo."
+    text: "Własne zaplecze wykonawcze i kadra inżynierska pracują jako jeden organizm. Eliminujemy bariery komunikacyjne, by dostarczać wielkoskalowe projekty terminowo."
   },
   {
     title: "Niezawodność i Bezpieczeństwo",
@@ -39,18 +39,18 @@ const values = [
 ];
 
 const team = [
-  { name: "Imię Nazwisko", role: "Prezes Zarządu", img: "/team/1.jpg" },
-  { name: "Imię Nazwisko", role: "Dyrektor Techniczny", img: "/team/2.jpg" },
-  { name: "Imię Nazwisko", role: "Główny Inżynier", img: "/team/3.jpg" },
-  { name: "Imię Nazwisko", role: "Kierownik Projektu", img: "/team/4.jpg" },
-  { name: "Imię Nazwisko", role: "Specjalista ds. OZE", img: "/team/5.jpg" },
-  { name: "Imię Nazwisko", role: "Koordynator Montażu", img: "/team/6.jpg" },
-  { name: "Imię Nazwisko", role: "Doradca Biznesowy", img: "/team/7.jpg" },
-  { name: "Imię Nazwisko", role: "Inżynier Elektryk", img: "/team/8.jpg" },
-  { name: "Imię Nazwisko", role: "Logistyk Projektu", img: "/team/9.jpg" },
-  { name: "Imię Nazwisko", role: "Projektant Instalacji", img: "/team/10.jpg" },
-  { name: "Imię Nazwisko", role: "Specjalista ds. Dokumentacji", img: "/team/11.jpg" },
-  { name: "Imię Nazwisko", role: "Serwisant Systemów", img: "/team/12.jpg" },
+  { name: "Krzysztof Mazur", role: "Właściciel", img: "/img/zespol/K_Mazur.jpg" },
+  { name: "Aleksandra Krzysteczko", role: "", img: "" },
+  { name: "Adrian Kanik", role: "", img: "" },
+  { name: "Marta Tarnawa", role: "", img: "" },
+  { name: "Ireneusz Wiecha", role: "", img: "" },
+  { name: "Andżelika Śliwa", role: "", img: "" },
+  { name: "Wojciech Szpoton", role: "", img: "" },
+  { name: "Andrzej Pieróg", role: "", img: "" },
+  { name: "Imię Nazwisko", role: "", img: "" },
+  { name: "Imię Nazwisko", role: "", img: "" },
+  { name: "Imię Nazwisko", role: "", img: "" },
+  { name: "Imię Nazwisko", role: "", img: "" },
 ];
 
 function TimelineBlock({ text, index }: { text: string; index: number }) {
@@ -73,7 +73,7 @@ function TimelineBlock({ text, index }: { text: string; index: number }) {
       <motion.div 
         animate={isInView ? { scale: 1 } : { scale: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 top-16 md:top-1/2 md:-translate-y-1/2 w-3 h-3 md:w-4 md:h-4 bg-black rounded-full z-20 border-2 border-white md:border-2"
+        className="absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 top-16 md:top-1/2 md:-translate-y-1/2 w-3 h-3 md:w-4 md:h-4 bg-black rounded-full z-20 border-2 border-white"
       />
     </div>
   );
@@ -172,8 +172,18 @@ export default function TeamPage() {
                 transition={{ delay: i * 0.05 }}
                 className="group"
               >
-                <div className="aspect-[3/4] bg-zinc-50 mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700 ease-in-out rounded-sm border border-zinc-100">
-                  <div className="w-full h-full bg-zinc-100" /> 
+                <div className="aspect-[3/4] bg-zinc-100 mb-6 overflow-hidden relative ease-in-out rounded-sm border border-zinc-100">
+                  {member.img ? (
+                    <img 
+                      src={member.img} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-zinc-50">
+                      <span className="text-zinc-300 text-[10px] font-black uppercase tracking-[0.3em]">No photo</span>
+                    </div>
+                  )}
                 </div>
                 <div className="space-y-1">
                   <h4 className="text-lg font-bold uppercase tracking-tight">{member.name}</h4>

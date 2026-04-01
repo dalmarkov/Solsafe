@@ -9,7 +9,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: false, margin: "-50px" },
-  transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }
+  transition: { duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] as const }
 };
 
 export default function Home() {
@@ -25,9 +25,9 @@ export default function Home() {
           <img src="/img/for_firm1.png" alt="Fotowoltaika dla firm" className="w-full h-full object-cover" />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
-          <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Efektywność biznesu</span>
+          <span className="text-white font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Efektywność biznesu</span>
           <h2 className="text-white text-5xl md:text-7xl font-light mb-8 tracking-tight">Dla Firmy</h2>
-          <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Zredukuj koszty operacyjne i zbuduj wizerunek ekologicznego przedsiębiorstwa.</p>
+          <p className="text-white text-xl max-w-xl mb-10 font-light leading-relaxed">Zredukuj koszty operacyjne i zbuduj wizerunek ekologicznego przedsiębiorstwa.</p>
           <Link href="/dla-firmy">
             <button className="bg-white/30 will-change-[backdrop-filter] px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
               Sprawdź ofertę
@@ -43,9 +43,9 @@ export default function Home() {
           <img src="/img/farmy.jpg" alt="Farmy fotowoltaiczne" className="w-full h-full object-cover" />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full text-right flex flex-col items-end">
-          <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Wielka skala</span>
+          <span className="text-white font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Wielka skala</span>
           <h2 className="text-white text-5xl md:text-7xl font-light mb-8 tracking-tight">Farmy Fotowoltaiczne</h2>
-          <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Inwestycje w OZE na dużą skalę.</p>
+          <p className="text-white text-xl max-w-xl mb-10 font-light leading-relaxed">Inwestycje w OZE na dużą skalę.</p>
           <Link href="/farmy">
             <button className="bg-white/30 will-change-[backdrop-filter] px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
               Dowiedz się więcej
@@ -61,9 +61,9 @@ export default function Home() {
           <img src="/img/dla_domu2.jpg" alt="Fotowoltaika для дома" className="w-full h-full object-cover" />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
-          <span className="text-white/70 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Niezależność</span>
+          <span className="text-white font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Niezależność</span>
           <h2 className="text-white text-5xl md:text-7xl font-light mb-8 tracking-tight">Dla Domu</h2>
-          <p className="text-white/90 text-xl max-w-xl mb-10 font-light leading-relaxed">Czysta energia dla Twojej rodziny.</p>
+          <p className="text-white text-xl max-w-xl mb-10 font-light leading-relaxed">Czysta energia dla Twojej rodziny.</p>
           <Link href="/dla-domu">
             <button className="bg-white/30 will-change-[backdrop-filter] px-12 py-5 border border-white text-white rounded-full font-medium transition-all duration-300 text-sm uppercase tracking-widest hover:bg-white hover:text-black">
               Bezpłatna wycena
@@ -85,7 +85,7 @@ export default function Home() {
           />
           <motion.div {...fadeInUp} className="relative z-20 h-full flex flex-col items-center justify-end text-center px-8 pb-12 md:pb-20">
             <h3 className="text-white text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">Centrum Solsafe</h3>
-            <p className="text-white/70 text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Uzyskaj pomoc, której potrzebujesz.</p>
+            <p className="text-white text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Uzyskaj pomoc, której potrzebujesz.</p>
             
             {/* ИЗМЕНЕНО: Ссылка на контакты */}
             <Link href="/kontakt">
@@ -106,7 +106,7 @@ export default function Home() {
           />
           <motion.div {...fadeInUp} className="relative z-20 h-full flex flex-col items-center justify-end text-center px-8 pb-12 md:pb-20">
             <h3 className="text-white text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">Wszystko o energii</h3>
-            <p className="text-white/70 text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Fotowoltaika bez tajemnic. Odpowiedzi na najczęstsze pytania.</p>
+            <p className="text-white text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Fotowoltaika bez tajemnic. Odpowiedzi na najczęstsze pytania.</p>
             
             {/* ДОБАВЛЕНО: Переход на страницу FAQ/Блога */}
             <Link href="/wszystko-o-energii">
