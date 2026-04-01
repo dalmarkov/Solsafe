@@ -1,9 +1,9 @@
 'use client'
 
 import { motion, AnimatePresence, Variants } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link' // Добавлено
+import Link from 'next/link'
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -37,15 +37,62 @@ const products = [
     id: 3,
     title: "Ładowarki elektryczne", 
     details: "Stacje typu Wallbox zintegrowane z fotowoltaiką. Funkcja DLB automatycznie dostosowuje moc ładowania, chroniąc instalację przed przeciążeniem.",
-    img: "/img/dla-domu/charger.jpg"
+    img: "/img/dla-domu/IMG_0555.jpg"
   },
   { 
     id: 4,
     title: "Pompy Ciepła", 
     details: "Dobieramy urządzenia o najwyższym współczynniku COP. W połączeniu z PV, pompa ciepła staje się niemal darmowym źródłem ogrzewania.",
-    img: "/img/dla-domu/pomp.jpg"
+    img: "/img/dla-domu/pomp.mp4",
+    poster: "/img/dla-domu/pomp-poster.png" 
   }
 ]
+
+function ProductMedia({ src, title, isVideo, poster }: { src: string; title: string; isVideo: boolean; poster?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    if (isVideo && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isVideo && videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
+  return (
+    <div 
+      className="absolute inset-0 w-full h-full transform-gpu bg-zinc-200"
+      onMouseEnter={handleMouseEnter} 
+      onMouseLeave={handleMouseLeave}
+    >
+      {isVideo ? (
+        <video
+          ref={videoRef}
+          src={src}
+          poster={poster}
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+          style={{ backfaceVisibility: 'hidden', opacity: 1 }}
+        />
+      ) : (
+        <Image 
+          src={src} 
+          alt={title} 
+          fill 
+          className="object-cover transition-transform duration-[1.2s] group-hover:scale-105" 
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      )}
+    </div>
+  );
+}
 
 export default function Page() {
   const [expandedId, setExpandedId] = useState<number | null>(null);
@@ -54,9 +101,14 @@ export default function Page() {
     setExpandedId(expandedId === id ? null : id);
   };
 
+  // Fix for scroll-to-top on page entry
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#f9f9fb] text-zinc-900 overflow-x-hidden font-sans">
-
+      
       {/* HERO */}
       <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -80,7 +132,10 @@ export default function Page() {
         
         <div className="max-w-[1400px] mx-auto px-8 pt-28 mb-20 text-center">
           <motion.h2 
-            initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 15 }} 
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-7xl font-normal tracking-tight text-zinc-900"
           >
             Energia stworzona dla Twojego komfortu
@@ -90,30 +145,38 @@ export default function Page() {
         <div className="max-w-[1450px] mx-auto px-4 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            {products.map((item, index) => {
-              const isMain = index === 0;
+            {products.map((item) => {
+              const isFullWidth = item.id === 0 || item.id === 3 || item.id === 4;
               const isExpanded = expandedId === item.id;
+              const isVideo = item.img.endsWith('.mp4');
 
               return (
-                <div key={item.id} className={`${isMain ? 'md:col-span-2' : 'col-span-1'} flex flex-col`}>
+                <div key={item.id} className={`${isFullWidth ? 'md:col-span-2' : 'col-span-1'} flex flex-col`}>
                   
                   <motion.div 
                     layout="position"
                     onClick={() => toggleExpand(item.id)}
-                    className={`relative overflow-hidden rounded-[20px] md:rounded-[24px] group cursor-pointer shadow-sm z-10
-                      ${isMain ? 'h-[500px] md:h-[700px]' : 'h-[350px] md:h-[450px]'}
+                    className={`relative overflow-hidden rounded-[20px] md:rounded-[24px] group cursor-pointer shadow-sm z-10 transform-gpu
+                      ${isFullWidth ? 'h-[500px] md:h-[700px]' : 'h-[350px] md:h-[450px]'}
                     `}
+                    style={{ backfaceVisibility: 'hidden' }}
                   >
-                    <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-[1.2s] group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500" />
+                    <ProductMedia 
+                      src={item.img} 
+                      title={item.title} 
+                      isVideo={isVideo} 
+                      poster={(item as any).poster} 
+                    />
+
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 pointer-events-none" />
                     
-                    <div className={`absolute inset-0 flex flex-col items-center justify-start p-8 text-center text-white 
-                      ${isMain ? 'pt-12 md:pt-20' : 'pt-10 md:pt-14'}`}
+                    <div className={`absolute inset-0 flex flex-col items-center justify-start p-8 text-center text-white pointer-events-none
+                      ${isFullWidth ? 'pt-12 md:pt-20' : 'pt-10 md:pt-14'}`}
                     >
-                      <h3 className={`${isMain ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'} font-normal tracking-tight mb-6`}>
+                      <h3 className={`${isFullWidth ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'} font-normal tracking-tight mb-6`}>
                         {item.title}
                       </h3>
-                      <div className={`px-6 py-2 border border-white/40 rounded-full text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm transition-all hover:bg-white hover:text-black ${isExpanded ? 'opacity-0' : 'opacity-100'}`}>
+                      <div className={`px-6 py-2 border border-white/40 rounded-full text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm transition-all ${isExpanded ? 'opacity-0' : 'opacity-100'}`}>
                         Szczegóły
                       </div>
                     </div>
@@ -159,7 +222,6 @@ export default function Page() {
             })}
           </div>
 
-          {/* НИЖНИЙ БЛОК С ЛИНИЕЙ И КНОПКОЙ */}
           <div className="mt-20 pt-16 border-t border-zinc-300/50 flex justify-center">
             <Link href="/kontakt">
               <motion.button 
@@ -172,7 +234,6 @@ export default function Page() {
               </motion.button>
             </Link>
           </div>
-
         </div>
       </section>
     </main>

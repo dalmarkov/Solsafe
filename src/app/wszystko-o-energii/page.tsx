@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiPlus, FiMinus, FiGlobe, FiZap, FiShield, FiTrendingUp, FiChevronDown, FiBatteryCharging } from 'react-icons/fi';
 
-// 1. КОНФИГУРАЦИЯ ДАННЫХ С УГЛУБЛЕННЫМ КОНТЕНТОМ
+// 1. DATA CONFIGURATION
 const systemSteps = [
   { 
     title: "01. Panele Fotowoltaiczne", 
@@ -27,10 +27,10 @@ const systemSteps = [
 ];
 
 const pinCoords = [
-  { top: '24%', left: '49%', icon: <FiZap />, color: '#FFD700' }, 
-  { top: '52%', left: '43.7%', icon: <FiZap />, color: '#FFD700' }, 
-  { top: '60%', left: '37%', icon: <FiBatteryCharging />, color: '#10b981' }, 
-  { top: '71%', left: '33%', icon: <FiBatteryCharging />, color: '#10b981' }, 
+  { top: '24%', left: '49%', icon: <FiZap /> }, 
+  { top: '52%', left: '43.7%', icon: <FiZap /> }, 
+  { top: '60%', left: '37%', icon: <FiBatteryCharging /> }, 
+  { top: '71%', left: '33%', icon: <FiBatteryCharging /> }, 
 ];
 
 const detailedBenefits = [
@@ -82,8 +82,24 @@ export default function SolarHowItWorksFinal() {
   const [expandedBenefit, setExpandedBenefit] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
+    requestAnimationFrame(scrollToTop);
+    const timer = setTimeout(scrollToTop, 60);
+    return () => {
+      clearTimeout(timer);
+      if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
+    };
+  }, []);
+
   return (
-    <main className="bg-white min-h-screen overflow-x-hidden font-sans">
+    <main className="bg-white min-h-screen overflow-x-hidden font-sans relative z-10">
       
       {/* --- 1. HERO --- */}
       <section className="bg-white pt-24 md:pt-40 pb-8 px-6 md:px-10 flex flex-col items-center text-center text-black">
