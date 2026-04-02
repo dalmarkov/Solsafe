@@ -101,7 +101,6 @@ export default function Page() {
     setExpandedId(expandedId === id ? null : id);
   };
 
-  // Fix for scroll-to-top on page entry
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
@@ -109,11 +108,19 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-[#f9f9fb] text-zinc-900 overflow-x-hidden font-sans">
       
-      {/* HERO */}
+      {/* HERO SECTION — Оптимизировано LCP */}
       <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image src="/img/dla_domu2.jpg" alt="Dla Domu" fill priority className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent backdrop-blur-[2px]" />
+          <Image 
+            src="/img/dla_domu2-blur.jpg" 
+            alt="Dla Domu" 
+            fill 
+            priority 
+            quality={90}
+            className="object-cover" 
+          />
+          {/* Удален backdrop-blur для стабильной загрузки */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </div>
         <div className="relative z-20 h-full w-full"> 
           <div className="max-w-[1600px] mx-auto h-full flex flex-col justify-end pb-24 md:pb-32 px-8 md:px-24">
@@ -127,18 +134,18 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CONTENT */}
       <section className="relative z-30 -mt-10 bg-[#f5f5f7] rounded-t-[24px] md:rounded-t-[40px] pb-16">
         
-        <div className="max-w-[1400px] mx-auto px-8 pt-28 mb-20 text-center">
+        {/* Адаптированный заголовок для мобильных */}
+        <div className="max-w-[1400px] mx-auto px-6 pt-28 mb-20 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }} 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-7xl font-normal tracking-tight text-zinc-900"
+            className="text-3xl md:text-7xl font-normal tracking-tight text-zinc-900 leading-tight md:leading-none"
           >
-            Energia stworzona dla Twojego komfortu
+            Energia stworzona <br className="md:hidden" /> dla Twojego komfortu
           </motion.h2>
         </div>
 
@@ -146,7 +153,7 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {products.map((item) => {
-              const isFullWidth = item.id === 0 || item.id === 3 || item.id === 4;
+              const isFullWidth = item.id === 0;
               const isExpanded = expandedId === item.id;
               const isVideo = item.img.endsWith('.mp4');
 

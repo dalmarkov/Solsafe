@@ -3,8 +3,9 @@
 import Hero from '@/components/Hero';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
-// Настройка анимации появления контента
+// Настройка анимации появления контента 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
@@ -22,7 +23,15 @@ export default function Home() {
       <section className="relative h-[92vh] w-full flex items-end pb-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/20 z-10"></div>
-          <img src="/img/for_firm1.png" alt="Fotowoltaika dla firm" className="w-full h-full object-cover" />
+          <Image 
+            src="/img/for_firm1.png" 
+            alt="Fotowoltaika dla firm" 
+            fill 
+            priority
+            quality={85}
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
           <span className="text-white font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Efektywność biznesu</span>
@@ -40,7 +49,14 @@ export default function Home() {
       <section className="relative h-[92vh] w-full flex items-end pb-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/20 z-10"></div>
-          <img src="/img/farmy.jpg" alt="Farmy fotowoltaiczne" className="w-full h-full object-cover" />
+          <Image 
+            src="/img/farmy.jpg" 
+            alt="Farmy fotowoltaiczne" 
+            fill 
+            quality={85}
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full text-right flex flex-col items-end">
           <span className="text-white font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Wielka skala</span>
@@ -54,11 +70,18 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 4. СЕКЦИЯ: DLA ДОМА */}
+      {/* 4. СЕКЦИЯ: DLA DOMU */}
       <section className="relative h-[92vh] w-full flex items-end pb-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/20 z-10"></div>
-          <img src="/img/dla_domu2.jpg" alt="Fotowoltaika для дома" className="w-full h-full object-cover" />
+          <Image 
+            src="/img/dla_domu2.jpg" 
+            alt="Fotowoltaika dla domu" 
+            fill 
+            quality={85}
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
         <motion.div {...fadeInUp} className="relative z-20 max-w-[1440px] mx-auto px-8 w-full">
           <span className="text-white font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Niezależność</span>
@@ -78,16 +101,17 @@ export default function Home() {
         {/* ЛЕВЫЙ БЛОК: Centrum Solsafe */}
         <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-sm bg-zinc-900 group">
           <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors duration-500"></div>
-          <img 
+          <Image 
             src="/img/help_center.jpg" 
             alt="Centrum Solsafe" 
+            fill 
+            quality={80}
             className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" 
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           <motion.div {...fadeInUp} className="relative z-20 h-full flex flex-col items-center justify-end text-center px-8 pb-12 md:pb-20">
             <h3 className="text-white text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">Centrum Solsafe</h3>
             <p className="text-white text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Uzyskaj pomoc, której potrzebujesz.</p>
-            
-            {/* ИЗМЕНЕНО: Ссылка на контакты */}
             <Link href="/kontakt">
               <button className="bg-white/30 will-change-[backdrop-filter] px-10 py-4 rounded-full font-medium text-[10px] uppercase tracking-[0.2em] transition-all duration-300 border border-white text-white group-hover:bg-white group-hover:text-black">
                 Dowiedz się więcej
@@ -99,16 +123,17 @@ export default function Home() {
         {/* ПРАВЫЙ БЛОК: Wszystko o energii */}
         <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-sm bg-zinc-900 group">
           <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/30 transition-colors duration-500"></div>
-          <img 
+          <Image 
             src="/img/question_energy.jpg" 
             alt="Wszystko o energii" 
+            fill 
+            quality={80}
             className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" 
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           <motion.div {...fadeInUp} className="relative z-20 h-full flex flex-col items-center justify-end text-center px-8 pb-12 md:pb-20">
             <h3 className="text-white text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">Wszystko o energii</h3>
             <p className="text-white text-base md:text-lg mb-8 font-light max-w-sm leading-relaxed">Fotowoltaika bez tajemnic. Odpowiedzi na najczęstsze pytania.</p>
-            
-            {/* ДОБАВЛЕНО: Переход на страницу FAQ/Блога */}
             <Link href="/wszystko-o-energii">
               <button className="bg-white/30 will-change-[backdrop-filter] px-10 py-4 rounded-full font-medium text-[10px] uppercase tracking-[0.2em] transition-all duration-300 border border-white text-white group-hover:bg-white group-hover:text-black">
                 Dowiedz się więcej

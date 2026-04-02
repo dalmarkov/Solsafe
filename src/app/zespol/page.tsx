@@ -47,7 +47,7 @@ const team = [
   { name: "Andżelika Śliwa", role: "", img: "" },
   { name: "Wojciech Szpoton", role: "", img: "" },
   { name: "Andrzej Pieróg", role: "", img: "" },
-  { name: "Imię Nazwisko", role: "", img: "" },
+  { name: "Dawid Wawak", role: "kierownik robót", img: "" },
   { name: "Imię Nazwisko", role: "", img: "" },
   { name: "Imię Nazwisko", role: "", img: "" },
   { name: "Imię Nazwisko", role: "", img: "" },

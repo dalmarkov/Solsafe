@@ -39,10 +39,17 @@ const contactData = [
     people: [
       { 
         name: "Wsparcie Serwisowe", 
-        // Добавлены ваши 2 новых номера в массив
         tels: ["+48 537 240 689", "+48 532 455 298", "+48 533 262 304"], 
         mail: "serwis@solsafe.pl" 
-      },
+      }
+    ]
+  },
+  {
+    dept: "Kontrakty zagraniczne",
+    people: [
+      { name: "Krzysztof Mazur", tels: ["+48 537 240 689"], mail: "k.mazur@solsafe.pl" },
+      { name: "Dawid Wawak", tels: ["+48 796 110 766"], mail: "d.wawak@solsafe.pl" },
+      { name: "Anna Mazur", tels: ["+48 663 995 531"], mail: "a.mazur@solsafe.pl" }
     ]
   }
 ];
@@ -53,7 +60,9 @@ export default function KontaktPage() {
 
   useEffect(() => {
     setMounted(true);
-    window.scrollTo(0, 0);
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -118,7 +127,6 @@ export default function KontaktPage() {
                       {person.name}
                     </h3>
                     <div className="flex flex-col space-y-2">
-                      {/* Рендеринг всех номеров телефона из массива */}
                       {person.tels.map((tel, tIdx) => (
                         <a 
                           key={tIdx} 
@@ -148,6 +156,7 @@ export default function KontaktPage() {
                 key="success"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
                 className="text-center py-20"
               >
                 <FiCheckCircle className="mx-auto text-6xl text-[#ff5a1f] mb-6" />
@@ -161,7 +170,12 @@ export default function KontaktPage() {
                 </button>
               </motion.div>
             ) : (
-              <motion.div key="form">
+              <motion.div 
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
                 <div className="text-center mb-20">
                   <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-400 mb-6">Formularz kontaktowy</h2>
                   <p className="text-3xl md:text-6xl font-normal tracking-tight">

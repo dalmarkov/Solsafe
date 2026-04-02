@@ -5,20 +5,21 @@
   { 
   "id": 1, 
   "category": "FARMY PV", 
-  "title": "Francja. Chateau Gabillon", 
-  "desc": "Moc: 5 MWp", 
-  "img": "/img/realizacje/Chateau_Gabillon/SAVE_20190730_184815 (1).jpg",
-  "fullDesc": "Realizacja farmy fotowoltaicznej Chateau Gabillon we Francji to projekt łączący zaawansowaną technologię z dbałością o środowisko naturalne. Instalacja o mocy 5 MWp została zaprojektowana tak, aby maksymalnie wykorzystać potencjał nasłonecznienia regionu, przy jednoczesnym zachowaniu estetyki lokalnego krajobrazu. System składa się z ponad 11 tysięcy wysokowydajnych paneli marki SunPower, które słyną z wyjątkowej trwałości i efektywności. Za stabilną pracę i optymalne zarządzanie energią odpowiadają inwertery Huawei. Projekt ten jest doskonałym przykładem skalowalnego odnawialnego źródła energii, które wspiera lokalną infrastrukturę energetyczną czystą i darmową energią ze słońca.",
+  "title": "Francja. Douzy",
+  "desc": "Moc: 51 MWp", 
+  "img": "/img/realizacje/Douzy/605207516_1746402062962845_8045352210084338509_n.jpg",
+  "fullDesc": "Projekt w miejscowości Douzy we Francji to jedna z naszych najbardziej prestiżowych realizacji na rynku europejskim. Budowa farmy fotowoltaicznej o imponującej mocy 51 MWp wymagała precyzyjnej logistyki oraz najwyższych standardów wykonawstwa. Instalacja składa się z blisko 70 tysięcy paneli Jinko Solar o mocy 730 Wp każdy, co czyni ją potężnym źródłem czystej energii dla regionu. Całość systemu została zintegrowana z zaawansowanymi rozwiązaniami inwerterowymi marki Huawei, zapewniając maksymalną wydajność i inteligentne zarządzanie przepływem energii. Realizacja ta potwierdza nasze kompetencje w budowie wielkoskalowych elektrowni słonecznych, które stanowią kluczowy element transformacji energetycznej Europy.",
   "gallery": [
-    "/img/realizacje/Chateau_Gabillon/IMG_20190711_212549.jpg", 
-    "/img/realizacje/Chateau_Gabillon/IMG_20190618_154407.jpg"
+    "/img/realizacje/Douzy/605764538_1740770560192662_2721502589677530110_n.jpg", 
+    "/img/realizacje/Douzy/org_5c36438e1647bfd6_1756741372000.jpg", 
+    "/img/realizacje/Douzy/org_531d83ec870f90d5_1756741792000.jpg"
   ],
   "specs": { 
-    "Moc": "5 MWp", 
-    "Panele": "SunPower 435 Wp", 
+    "Moc": "51 MWp", 
+    "Panele": "Jinko Solar 730 Wp", 
     "Inwerter": "Huawei",
-    "Rok": "2018", 
-    "Ilość paneli": "11494" 
+    "Rok": "2026", 
+    "Ilość paneli": "69863" 
   }
 },
   { 
@@ -62,21 +63,20 @@
   { 
   "id": 4, 
   "category": "FARMY PV", 
-  "title": "Francja. Douzy",
-  "desc": "Moc: 51 MWp", 
-  "img": "/img/realizacje/Douzy/605207516_1746402062962845_8045352210084338509_n.jpg",
-  "fullDesc": "Projekt w miejscowości Douzy we Francji to jedna z naszych najbardziej prestiżowych realizacji na rynku europejskim. Budowa farmy fotowoltaicznej o imponującej mocy 51 MWp wymagała precyzyjnej logistyki oraz najwyższych standardów wykonawstwa. Instalacja składa się z blisko 70 tysięcy paneli Jinko Solar o mocy 730 Wp każdy, co czyni ją potężnym źródłem czystej energii dla regionu. Całość systemu została zintegrowana z zaawansowanymi rozwiązaniami inwerterowymi marki Huawei, zapewniając maksymalną wydajność i inteligentne zarządzanie przepływem energii. Realizacja ta potwierdza nasze kompetencje w budowie wielkoskalowych elektrowni słonecznych, które stanowią kluczowy element transformacji energetycznej Europy.",
+  "title": "Francja. Chateau Gabillon", 
+  "desc": "Moc: 5 MWp", 
+  "img": "/img/realizacje/Chateau_Gabillon/SAVE_20190730_184815 (1).jpg",
+  "fullDesc": "Realizacja farmy fotowoltaicznej Chateau Gabillon we Francji to projekt łączący zaawansowaną technologię z dbałością o środowisko naturalne. Instalacja o mocy 5 MWp została zaprojektowana tak, aby maksymalnie wykorzystać potencjał nasłonecznienia regionu, przy jednoczesnym zachowaniu estetyki lokalnego krajobrazu. System składa się z ponad 11 tysięcy wysokowydajnych paneli marki SunPower, które słyną z wyjątkowej trwałości i efektywności. Za stabilną pracę i optymalne zarządzanie energią odpowiadają inwertery Huawei. Projekt ten jest doskonałym przykładem skalowalnego odnawialnego źródła energii, które wspiera lokalną infrastrukturę energetyczną czystą i darmową energią ze słońca.",
   "gallery": [
-    "/img/realizacje/Douzy/605764538_1740770560192662_2721502589677530110_n.jpg", 
-    "/img/realizacje/Douzy/org_5c36438e1647bfd6_1756741372000.jpg", 
-    "/img/realizacje/Douzy/org_531d83ec870f90d5_1756741792000.jpg"
+    "/img/realizacje/Chateau_Gabillon/IMG_20190711_212549.jpg", 
+    "/img/realizacje/Chateau_Gabillon/IMG_20190618_154407.jpg"
   ],
   "specs": { 
-    "Moc": "51 MWp", 
-    "Panele": "Jinko Solar 730 Wp", 
+    "Moc": "5 MWp", 
+    "Panele": "SunPower 435 Wp", 
     "Inwerter": "Huawei",
-    "Rok": "2026", 
-    "Ilość paneli": "69863" 
+    "Rok": "2018", 
+    "Ilość paneli": "11494" 
   }
 },
   { 
