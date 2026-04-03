@@ -122,9 +122,9 @@ export default function Home() {
 
         {/* ПРАВЫЙ БЛОК: Wszystko o energii */}
         <div className="relative flex-1 aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-sm bg-zinc-900 group">
-          <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/30 transition-colors duration-500"></div>
+          <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-black/10 transition-colors duration-500"></div>
           <Image 
-            src="/img/question_energy.jpg" 
+            src="/img/grunt.jpg" 
             alt="Wszystko o energii" 
             fill 
             quality={80}

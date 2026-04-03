@@ -36,13 +36,13 @@ const services = [
     title: "Instalacje fotowoltaiczne", 
     desc: "Projektowanie, montaż, utrzymanie.",
     full: "Doradzamy, jak optymalnie wykorzystać powierzchnię budynku lub gruntu. Dobieramy wielkość instalacji oraz rodzaj komponentów premium, montujemy i uruchamiamy system.",
-    img: "/img/dla-firmy/pv.jpg"
+    img: "/img/dla-firmy/montaz.jpg"
   },
   { 
     title: "Magazyn energii", 
     desc: "Niezależność i bezpieczeństwo.",
     full: "Zwiększamy autokonsumpcję energii w Twoim przedsiębiorstwie. Magazyn energii chroni przed blackoutami i zapewnia stabilne zasilanie rezerwowe.",
-    img: "/img/for_firm1.png"
+    img: "/img/dla-firmy/magazyn.png"
   },
   { 
     title: "Zarządzanie energią", 

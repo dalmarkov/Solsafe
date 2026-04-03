@@ -118,5 +118,69 @@
     "Rok": "2023", 
     "Ilość paneli": "1652" 
   }
+},
+  { 
+  "id": 7, 
+  "category": "DLA FIRMY", 
+  "title": "Polska. Tychy",
+  "desc": "Moc: 500,02 kWp", 
+  "img": "/img/realizacje/Tychy_Bato/625976439_1774624676807250_8505694356253319932_n.jpg",
+  "fullDesc": "SolSafe ukończyło realizację instalacji fotowoltaicznej o łącznej mocy 500,02 kWp w Tychach. Jako generalny wykonawca odpowiadaliśmy za kompleksowy proces inwestycyjny: od projektu technicznego, przez montaż, aż po odbiory i formalności po stronie OSD. System opiera się na 1087 modułach Jetion Solar o mocy 460 Wp każdy oraz 4 falownikach Growatt, zapewniających stabilną i wydajną pracę. Zakres prac objął również renowację dachu obiektu oraz demontaż części istniejących instalacji przemysłowych. Przy budowie infrastruktury wykorzystaliśmy specjalistyczną technikę mechanicznego układania kabli pod ziemią, co zapewniło precyzję i najwyższą trwałość połączeń. Bezpieczeństwo było naszym priorytetem, dlatego zamontowaliśmy czujniki ugięcia dachu, które pozwalają monitorować obciążenie śniegiem i zapewniają pełną kontrolę nad konstrukcją w okresie zimowym.",
+  "gallery": [
+    "/img/realizacje/Tychy_Bato/605642703_1746402049629513_1555438572690806975_n.jpg", 
+    "/img/realizacje/Tychy_Bato/627238410_1774624666807251_6065146260831376051_n.jpg", 
+    "/img/realizacje/Tychy_Bato/627673818_1774624663473918_6628782067680054535_n.jpg"
+  ],
+  "specs": { 
+    "Moc": "500,02 kWp", 
+    "Panele": "Jetion Solar 460 Wp", 
+    "Inwerter": "Growatt",
+    "Rok": "2026", 
+    "Ilość paneli": "1087" 
+  }
+},
+  {
+  "id": 8,
+  "category": "DLA FIRMY",
+  "title": "Polska. Zabrze",
+  "desc": "Moc: 30 kWp | Magazyn: 40 kWh",
+  "img": "/img/realizacje/Polska_Zabrze/652746543_1807031600233224_1080194568760258356_n.jpg",
+  "fullDesc": "Zrealizowaliśmy zaawansowany system fotowoltaiczny o mocy 30 kWp zintegrowany z magazynem energii o pojemności 40 kWh. Instalacja opiera się na wydajnych panelach Hanersun 500 Wp oraz inwerterze Huawei 25 kW, który zarządza pracą 6 jednostek bateryjnych. Unikalnym elementem projektu jest specjalistyczny kontener z funkcją chłodzenia i ogrzewania, zapewniający optymalne warunki pracy akumulatorów zgodnie z wymaganiami inwestora. W celu optymalizacji kosztów wdrożyliśmy kompensator mocy biernej, eliminujący opłaty za energię bierną w przedsiębiorstwie. Projekt wykonany we współpracy z firmą BG SYSTEM zapewnia inwestorowi niezależność, stabilność oraz maksymalną autokonsumpcję energii.",
+  "gallery": [
+    "/img/realizacje/Polska_Zabrze/654690401_1807031606899890_5134621148961671242_n.jpg",
+    "/img/realizacje/Polska_Zabrze/652531883_1807031643566553_3360164267137673665_n.jpg",
+    "/img/realizacje/Polska_Zabrze/653703236_1807031686899882_9054506795838945341_n.jpg"
+  ],
+  "specs": {
+    "Moc": "30 kWp",
+    "Magazyn energii": "40 kWh (Huawei)",
+    "Panele": "Hanersun 500 Wp",
+    "Inwerter": "Huawei 25 kW",
+    "Partner": "BG SYSTEM",
+    "Rok": "2026"
+  }
+},
+{
+  "id": 9,
+  "category": "FARMY FOTOWOLTAICZNE",
+  "title": "Francja. Daigny (Sedan)",
+  "desc": "Moc: ~39 MWp",
+  "img": "/img/realizacje/Francja_Daigny/485633112_1523229021946818_7174423542298490053_n.jpg",
+  "fullDesc": "SolSafe z dumą prezentuje ukończenie gigantycznej farmy fotowoltaicznej w miejscowości Daigny (Sedan) we Francji. Projekt ten obejmował instalację 56 160 modułów Canadian Solar o mocach 695 i 700 Wp, połączonych ze 102 inwerterami Huawei 330 KTL. Infrastruktura opiera się na 2080 zaawansowanych konstrukcjach wsporczych oraz 8 stacjach transformatorowych. Realizacja ta jest dowodem na naszą sprawność operacyjną w skali międzynarodowej. Co więcej, sukces ten otwiera kolejny rozdział — zaledwie trzy kilometry dalej SolSafe rozpoczyna budowę kolejnej farmy o mocy 51 MWp, kontynuując transformację energetyczną regionu.\n\n SolSafe z sukcesem zakończyło budowę jednej z największych elektrowni słonecznych w regionie Daigny (Sedan) we Francji. Na obszarze inwestycji zamontowano 56 160 modułów Canadian Solar (695 i 700 Wp), których pracę wspierają 102 zaawansowane falowniki Huawei 330 KTL. Konstrukcja bazuje na 2080 systemach wsporczych, a przesył energii do sieci zapewnia 8 transformatorów mocy. Zakończenie tego etapu zbiega się z rozpoczęciem kolejnej, jeszcze większej inwestycji — zaledwie trzy kilometry od obecnego miejsca SolSafe przystępuje do budowy nowej farmy o mocy 51 MWp.",
+  "gallery": [
+    "/img/realizacje/Francja_Daigny/485970852_1523227321946988_1315423094674458215_n.jpg",
+    "/img/realizacje/Francja_Daigny/485154782_1523226881947032_3120667684065954673_n.jpg",
+    "/img/realizacje/Francja_Daigny/485018668_1523228545280199_3129439444195860371_n.jpg",
+    "/img/realizacje/Francja_Daigny/484858327_1523229858613401_3187762298571151374_n.jpg"
+  ],
+  "specs": {
+    "Moc": "ok. 39 MWp",
+    "Panele": "Canadian Solar 695-700 Wp",
+    "Ilość paneli": "56 160 szt.",
+    "Inwertery": "102x Huawei 330 KTL",
+    "Konstrukcje": "2080 szt.",
+    "Transformatory": "8 szt.",
+    "Rok": "2025"
+  }
 }
 ]

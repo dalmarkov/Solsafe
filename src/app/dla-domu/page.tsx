@@ -29,15 +29,16 @@ const products = [
   },
   { 
     id: 2,
-    title: "Elektryka & Automatyka", 
+    title: "Elektryka i Automatyka", 
     details: "Od kompleksowego okablowania po inteligentne zarządzanie domem. Projektujemy systemy, które uczą się Twoich nawyków, oszczędzając energię.",
-    img: "/img/dla-domu/electric.jpg"
+    img: "/img/dla-domu/electric1.jpg"
   },
   { 
     id: 3,
     title: "Ładowarki elektryczne", 
     details: "Stacje typu Wallbox zintegrowane z fotowoltaiką. Funkcja DLB automatycznie dostosowuje moc ładowania, chroniąc instalację przed przeciążeniem.",
-    img: "/img/dla-domu/IMG_0555.jpg"
+    img: "/img/dla-domu/ladowarka.mp4",
+    poster: "/img/dla-domu/IMG_0555.jpg"
   },
   { 
     id: 4,
@@ -177,7 +178,7 @@ export default function Page() {
 
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 pointer-events-none" />
                     
-                    <div className={`absolute inset-0 flex flex-col items-center justify-start p-8 text-center text-white pointer-events-none
+                    <div className={`absolute inset-0 flex flex-col items-center justify-end p-8 text-center text-white pointer-events-none
                       ${isFullWidth ? 'pt-12 md:pt-20' : 'pt-10 md:pt-14'}`}
                     >
                       <h3 className={`${isFullWidth ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'} font-normal tracking-tight mb-6`}>

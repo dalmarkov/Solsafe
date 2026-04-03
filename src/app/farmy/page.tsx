@@ -292,7 +292,7 @@ export default function Page() {
               </div>
 
               {/* УВЕЛИЧЕННАЯ ВЫСОТА БЛОКА: min-h-[600px] md:min-h-[850px] */}
-              <div className="max-w-[1440px] w-full grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch bg-zinc-950 rounded-[32px] overflow-hidden shadow-2xl min-h-[600px] md:min-h-[850px]">
+              <div className="max-w-[1440px] w-full grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch bg-zinc-950 rounded-[32px] overflow-hidden shadow-2xl min-h-[600px] md:min-h-[650px]">
                 
                 {/* ТЕКСТОВЫЙ БЛОК С БОЛЬШИМИ ОТСТУПАМИ: py-20 md:py-32 */}
                 <div className="p-8 md:p-24 py-20 md:py-32 flex flex-col justify-center items-start order-2 lg:order-1">
@@ -302,11 +302,6 @@ export default function Page() {
                   <p className="text-zinc-400 text-lg md:text-2xl font-light leading-relaxed mb-12 max-w-xl">
                     Optymalizujemy prace farm fotowoltaicznych poprzez systemy BESS (Battery Energy Storage System). Zwieksz rentownosc swojej inwestycji, zarzadzajac nadwyzkami energii i stabilizujac parametry sieciowe w czasie rzeczywistym.
                   </p>
-                  <Link href="/kontakt">
-                    <button className="px-10 py-5 border border-white/20 text-white rounded-full text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#ff5a1f] hover:border-[#ff5a1f] transition-all duration-500 active:scale-95">
-                      Sprawdz szczegoly techniczne
-                    </button>
-                  </Link>
                 </div>
 
                 <div className="relative h-[450px] lg:h-auto w-full order-1 lg:order-2">
@@ -327,7 +322,7 @@ export default function Page() {
 
             {/* FINAL CONTACT BLOCK */}
             <motion.div variants={itemVariants} className="w-full pt-[80px] md:pt-[120px] flex flex-col items-center text-center">
-              <p className="text-zinc-500 text-base md:text-lg font-light mb-10 max-w-2xl italic leading-relaxed">
+              <p className="text-zinc-500 text-base md:text-lg font-light mb-10 max-w-2xl leading-relaxed">
                 Szukasz sprawdzonego partnera do realizacji wielkoskalowej inwestycji OZE? Razem zbudujemy bezpieczna przyszlosc Twojego biznesu.
               </p>
               
