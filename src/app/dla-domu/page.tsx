@@ -138,19 +138,19 @@ export default function Page() {
       <section className="relative z-30 -mt-10 bg-[#f5f5f7] rounded-t-[24px] md:rounded-t-[40px] pb-16">
         
         {/* Адаптированный заголовок для мобильных */}
-        <div className="max-w-[1400px] mx-auto px-6 pt-28 mb-20 text-center">
+        <div className="max-w-[1400px] mx-auto px-6 pt-20 mb-20 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }} 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-3xl md:text-7xl font-normal tracking-tight text-zinc-900 leading-tight md:leading-none"
+            className="text-3xl md:text-7xl font-normal tracking-light text-zinc-900 leading-tight md:leading-none"
           >
             Energia stworzona <br className="md:hidden" /> dla Twojego komfortu
           </motion.h2>
         </div>
 
-        <div className="max-w-[1450px] mx-auto px-4 md:px-12">
+        <div className="max-w-[1450px] mx-auto px-2 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {products.map((item) => {

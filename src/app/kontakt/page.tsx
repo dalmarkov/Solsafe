@@ -96,22 +96,18 @@ export default function KontaktPage() {
   if (!mounted) return <div className="min-h-screen bg-[#F7F6F2]" />;
 
   return (
-    <motion.main 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="min-h-screen bg-[#F7F6F2] text-[#1a1a1a] pt-[120px] md:pt-[180px] pb-32 px-4 md:px-12 font-sans"
-    >
+    <main className="min-h-screen bg-[#F7F6F2] text-[#1a1a1a] pt-[120px] md:pt-[180px] pb-32 px-4 md:px-12 font-sans overflow-x-hidden">
       <div className="max-w-[1440px] mx-auto">
         
         {/* CONTACT GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          {contactData.map((item, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 transform-gpu">
+          {contactData.map((item) => (
             <motion.section 
               key={item.dept}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-6 md:p-10 rounded-[30px] md:rounded-[40px] border border-zinc-200/50 bg-white/40 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: "linear" }}
+              className="p-6 md:p-10 rounded-[30px] md:rounded-[40px] border border-zinc-200/50 bg-white hover:shadow-xl transition-all duration-300 group will-change-opacity shadow-sm"
             >
               <div className="mb-8">
                 <h2 className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400 group-hover:text-[#ff5a1f] transition-colors">
@@ -149,14 +145,19 @@ export default function KontaktPage() {
         </div>
 
         {/* FORM SECTION */}
-        <div className="mt-32 pt-24 border-t border-zinc-300/50 max-w-[1000px] mx-auto">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="mt-32 pt-24 border-t border-zinc-300/50 max-w-[1000px] mx-auto"
+        >
           <AnimatePresence mode="wait">
             {status === 'success' ? (
               <motion.div 
                 key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="text-center py-20"
               >
                 <FiCheckCircle className="mx-auto text-6xl text-[#ff5a1f] mb-6" />
@@ -209,8 +210,8 @@ export default function KontaktPage() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
-    </motion.main>
+    </main>
   );
 }

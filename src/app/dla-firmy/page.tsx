@@ -105,7 +105,7 @@ export default function Page() {
       {/* CONTENT */}
       <section className="relative z-30 -mt-10 w-full bg-[#f9f9fb] rounded-t-[24px]">
         <motion.div
-          className="w-full py-16 md:py-24 px-6 md:px-12"
+          className="w-full py-16 md:py-24 px-2 md:px-12"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -180,7 +180,7 @@ export default function Page() {
 
               {/* RIGHT SIDE — CARDS (ACCORDIONS) */}
               <div className="grid gap-4">
-                <h2 className="lg:hidden text-3xl font-light mb-8 tracking-tight text-zinc-900 uppercase leading-tight whitespace-nowrap">
+                <h2 className="lg:hidden text-3xl font-normal mb-8 tracking-light text-zinc-900 uppercase leading-tight text-center">
                   Dla Firmy
                 </h2>
 
@@ -286,6 +286,9 @@ export default function Page() {
               variants={itemVariants}
               className="mt-20 md:mt-32 pt-16 border-t border-zinc-200 flex flex-col items-center text-center"
             >
+              <p className="text-zinc-500 text-base md:text-lg font-light mb-10 max-w-2xl leading-relaxed">
+                Szukasz optymalizacji kosztów energii w swojej firmie? Razem zbudujemy wydajny system, który zabezpieczy przyszłość Twojego biznesu.
+              </p>
               <Link href="/kontakt">
                 <button className="px-10 md:px-16 py-4 md:py-5 bg-black text-white rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-300 hover:bg-[#ff6b00] shadow-xl active:scale-95 transform-gpu">
                   Skontaktuj się z ekspertem

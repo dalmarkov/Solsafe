@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, Variants, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -47,24 +47,48 @@ const farmServices = [
   { 
     title: "Budowa", 
     desc: "Dostawa, montaz, utrzymanie.",
-    full: "Posiadamy wlasny transport, sprzet budowlany i ekipy wykonawcze. Nasze doswiadczenie w realizacji duzych projektow w Europie gwarantuje najwyzsze standardy budowy farm o mocach megawatowych.",
+    full: "Posiadamy wlasny transport, sprzet budowlany i ekipy wykonawcze. Nasze doswiadczenie v realizacji duzych projektow v Europie gwarantuje najwyzsze standardy budowy farm o mocach megawatowych.",
     img: "/img/farmy/budowa.jpg"
   },
   { 
     title: "O&M", 
     desc: "Monitoring, serwis.",
-    full: "Wspieramy Cie rowniez po uruchomieniu farmy. Monitorujemy i weryfikujemy produkcje w pierwszym okresie pracy, co daje Ci gwarancje, ze Twoja inwestycja bedzie dzialac na 100% mozliwosci.",
+    full: "Wspieramy Cie rowniez po uruchomieniu farmy. Monitorujemy i weryfikujemy produkcje v pierwszym okresie pracy, co daje Ci gwarancje, ze Twoja inwestycja bedzie dzialac na 100% mozliwosci.",
     img: "/img/farmy/monitoring-farmy.jpg"
   }
 ]
 
 export default function Page() {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#f9f9fb] font-sans overflow-x-hidden antialiased">
 
-      {/* HERO SECTION — Optimized for LCP */}
+      {/* HERO SECTION */}
       <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden flex flex-col justify-end transform-gpu">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
@@ -97,7 +121,7 @@ export default function Page() {
       {/* MAIN SERVICES SECTION */}
       <section className="relative z-30 w-full bg-[#f9f9fb] -mt-10 rounded-t-[24px]">
         <motion.div
-          className="w-full px-6 md:px-12 py-16 md:py-24"
+          className="w-full px-2 md:px-12 py-16 md:py-24" // Изменено px-6 на px-2 для мобилок
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -105,7 +129,7 @@ export default function Page() {
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-start">
               
-              {/* LEFT SIDE — DYNAMIC TEXT + PHOTO (DESKTOP) */}
+              {/* LEFT SIDE (DESKTOP) */}
               <motion.div variants={itemVariants} className="lg:sticky lg:top-40 hidden lg:block transform-gpu">
                 <h2 className="text-3xl md:text-5xl font-light mb-16 tracking-tight text-zinc-900 uppercase">
                   Energia na wielka skale
@@ -171,7 +195,7 @@ export default function Page() {
 
               {/* RIGHT SIDE — ACCORDIONS */}
               <div className="grid gap-5">
-                <h2 className="lg:hidden text-3xl font-light mb-8 tracking-tight text-zinc-900 uppercase leading-tight whitespace-nowrap">
+                <h2 className="lg:hidden text-3xl font-normal mb-8 tracking-light text-zinc-900 uppercase leading-tight text-center">
                   Energia na wielka skale
                 </h2>
 
@@ -271,8 +295,8 @@ export default function Page() {
               </div>
             </div>
 
-            {/* --- SECTION: ENERGY STORAGE (ENLARGED) --- */}
-            <motion.div variants={itemVariants} className="mt-[100px] md:mt-[160px] flex flex-col items-center transform-gpu">
+            {/* --- SECTION: ENERGY STORAGE (ENLARGED & SEAMLESS) --- */}
+            <motion.div variants={itemVariants} className="mt-[80px] md:mt-[160px] flex flex-col items-center transform-gpu">
               
               <div className="text-center mb-[40px] md:mb-[100px] w-full px-4 flex flex-col items-center">
                 <motion.div
@@ -291,30 +315,37 @@ export default function Page() {
                 </motion.div>
               </div>
 
-              {/* УВЕЛИЧЕННАЯ ВЫСОТА БЛОКА: min-h-[600px] md:min-h-[850px] */}
-              <div className="max-w-[1440px] w-full grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch bg-zinc-950 rounded-[32px] overflow-hidden shadow-2xl min-h-[600px] md:min-h-[650px]">
+              {/* Блок на мобилке теперь шире за счет отрицательного margin */}
+              <div 
+                ref={containerRef}
+                className="max-w-[1440px] w-full -mx-1 md:mx-0 grid grid-cols-1 lg:grid-cols-5 gap-0 items-stretch bg-zinc-950 rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl min-h-[450px] md:min-h-[550px]"
+              >
                 
-                {/* ТЕКСТОВЫЙ БЛОК С БОЛЬШИМИ ОТСТУПАМИ: py-20 md:py-32 */}
-                <div className="p-8 md:p-24 py-20 md:py-32 flex flex-col justify-center items-start order-2 lg:order-1">
-                  <h2 className="text-white text-4xl md:text-6xl font-light mb-8 tracking-tight uppercase leading-tight">
-                    Wielkoskalowe <br /> <span className="font-medium">Magazyny Energii</span>
-                  </h2>
-                  <p className="text-zinc-400 text-lg md:text-2xl font-light leading-relaxed mb-12 max-w-xl">
-                    Optymalizujemy prace farm fotowoltaicznych poprzez systemy BESS (Battery Energy Storage System). Zwieksz rentownosc swojej inwestycji, zarzadzajac nadwyzkami energii i stabilizujac parametry sieciowe w czasie rzeczywistym.
-                  </p>
+                {/* ВИДЕО БЛОК */}
+                <div className="relative h-[350px] lg:h-auto w-full order-1 lg:order-2 lg:col-span-3 overflow-hidden bg-black">
+                  <video
+                    ref={videoRef}
+                    src="/img/farmy/box_energy.mp4"
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                  />
+                  
+                  {/* Градиенты: на мобилке (to-b) переходит вниз в черный фон текста */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950 lg:hidden pointer-events-none h-full" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-transparent to-transparent hidden lg:block pointer-events-none w-1/3" />
                 </div>
 
-                <div className="relative h-[450px] lg:h-auto w-full order-1 lg:order-2">
-                  <Image 
-                    src="/img/farmy/magazyn_industrial.jpg" 
-                    alt="Przemyslowy magazyn energii"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  {/* Gradients to blend smoothly with the background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-transparent to-transparent hidden lg:block" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent lg:hidden" />
+                {/* ТЕКСТОВЫЙ БЛОК */}
+                <div className="p-8 md:p-16 py-16 md:py-20 flex flex-col justify-center items-start order-2 lg:order-1 lg:col-span-2 bg-zinc-950">
+                  <h2 className="text-white text-4xl md:text-5xl font-light mb-6 tracking-tight uppercase leading-tight">
+                    Wielkoskalowe <br /> <span className="font-medium">Magazyny Energii</span>
+                  </h2>
+                  <p className="text-zinc-400 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-xl">
+                    Optymalizujemy prace farm fotowoltaicznych poprzez systemy BESS. Zwieksz rentownosc swojej inwestycji i stabilizuj parametry sieciowe w czasie rzeczywistym.
+                  </p>
                 </div>
 
               </div>
