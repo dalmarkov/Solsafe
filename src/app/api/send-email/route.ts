@@ -1,19 +1,26 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Инициализируем Resend вашим API ключом
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  // 1. Проверяем ключ ВНУТРИ функции
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    console.error("Błąd: Brak klucza API Resend");
+    return NextResponse.json({ success: false, error: "Missing API Key" }, { status: 500 });
+  }
+
+  // 2. Инициализируем только если ключ есть
+  const resend = new Resend(apiKey);
+
   try {
     const { name, email, message } = await request.json();
 
-    // Отправка письма
     const data = await resend.emails.send({
-      from: 'SolSafe Form <onboarding@resend.dev>', // После настройки домена замените на contact@solsafe.pl
-      to: ['Solsafe@Solsafe.pl'], // Куда должны приходить заявки
+      from: 'SolSafe Form <onboarding@resend.dev>', 
+      to: ['Solsafe@Solsafe.pl'],
       subject: `Nowa wiadomość od: ${name}`,
-      replyTo: email,
+      replyTo: email, 
       text: `Imię: ${name}\nE-mail: ${email}\n\nWiadomość:\n${message}`,
     });
 
