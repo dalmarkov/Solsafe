@@ -18,32 +18,32 @@ const products = [
   { 
     id: 0,
     title: "Instalacje Fotowoltaiczne", 
-    details: "Nasze systemy eliminują wpływ zacienienia, zapewniając do 25% więcej energii. Oferujemy monitoring każdego panelu z osobna oraz 25-letnią gwarancję.",
+    details: "Nasze inteligentne systemy oparte na technologii mikrofalowników całkowicie eliminują negatywny wpływ zacienienia, zapewniając do 25% więcej energii w porównaniu do tradycyjnych instalacji szeregowych. Dzięki architekturze rozproszonej każdy panel pracuje jako niezależna jednostka, co pozwala na precyzyjny monitoring wydajności każdego modułu z osobna za pośrednictwem dedykowanej aplikacji mobilnej. Rozwiązanie to drastycznie podnosi bezpieczeństwo pożarowe poprzez eliminację wysokiego napięcia DC na dachu, a najwyższa na rynku, 25-letnia gwarancja produktowa stanowi fundament wieloletniego spokoju i pełnej niezależności energetycznej Twojego domu.",
     img: "/img/dla-domu/dla_domu1.jpg"
   },
   { 
     id: 1,
     title: "Magazyny Energii", 
-    details: "Zwiększ autokonsumpcję i zabezpiecz swój dom przed przerwami w dostawie prądu. Dobieramy pojemność baterii idealnie pod Twój profil zużycia.",
+    details: "Magazyny energii z SolSafe maksymalizują autokonsumpcję, pozwalając na pełne wykorzystanie darmowej energii również po zmroku. System pełni rolę niezawodnej tarczy ochronnej, gwarantując zasilanie awaryjne w przypadku nagłych przerw w dostawie prądu. Pojemność baterii dobieramy precyzyjnie pod Twój indywidualny profil zużycia, zapewniając bezpieczeństwo technologii LFP oraz realną niezależność od sieci na lata.",
     img: "/img/dla-domu/magazyn.jpg"
   },
   { 
     id: 2,
     title: "Elektryka i Automatyka", 
-    details: "Od kompleksowego okablowania po inteligentne zarządzanie domem. Projektujemy systemy, które uczą się Twoich nawyków, oszczędzając energię.",
+    details: "Inteligentna automatyka i systemy okablowania to fundament nowoczesnego domu, który uczy się Twoich nawyków. Nasze rozwiązania autonomicznie zarządzają oświetleniem, ogrzewaniem i energią, maksymalizując oszczędności przy zachowaniu najwyższego komfortu. Projektujemy zintegrowane systemy, które przewidują Twoje potrzeby, czyniąc budynek w pełni efektywnym i gotowym na wyzwania przyszłości.",
     img: "/img/dla-domu/electric1.jpg"
   },
   { 
     id: 3,
     title: "Ładowarki elektryczne", 
-    details: "Stacje typu Wallbox zintegrowane z fotowoltaiką. Funkcja DLB automatycznie dostosowuje moc ładowania, chroniąc instalację przed przeciążeniem.",
+    details: "Stacje Wallbox integrują ładowanie pojazdu z systemem fotowoltaicznym, tworząc inteligentny obieg czystej energii. Dzięki zaawansowanej funkcji DLB system w czasie rzeczywistym dostosowuje moc ładowania do aktualnego obciążenia sieci, chroniąc domową instalację przed przeciążeniem. To rozwiązanie pozwala na maksymalne wykorzystanie darmowych nadwyżek energii ze słońca, gwarantując najtańsze i najbezpieczniejsze zasilanie Twojego samochodu elektrycznego.",
     img: "/img/dla-domu/ladowarka.mp4",
     poster: "/img/dla-domu/IMG_0555.jpg"
   },
   { 
     id: 4,
     title: "Pompy Ciepła", 
-    details: "Dobieramy urządzenia o najwyższym współczynniku COP. W połączeniu z PV, pompa ciepła staje się niemal darmowym źródłem ogrzewania.",
+    details: "Pompy ciepła z SolSafe to szczyt efektywności w technologii grzewczej. Dobieramy urządzenia o najwyższym współczynniku COP, które w synergii z instalacją fotowoltaiczną zamieniają darmową energię ze słońca w niemal bezkosztowe źródło ciepła. Nasze systemy zapewniają całoroczny komfort termiczny i minimalne koszty eksploatacji, czyniąc Twój dom w pełni niezależnym od paliw kopalnych oraz niekontrolowanych wzrostów cen rynkowych.",
     img: "/img/dla-domu/pomp.mp4",
     poster: "/img/dla-domu/pomp-poster.png" 
   }
@@ -52,14 +52,38 @@ const products = [
 function ProductMedia({ src, title, isVideo, poster }: { src: string; title: string; isVideo: boolean; poster?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    if (!isVideo || !videoRef.current) return;
+
+    // Логика автоплея ТОЛЬКО для мобильных устройств
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isMobile = window.innerWidth <= 1024;
+        if (isMobile) {
+          if (entry.isIntersecting) {
+            videoRef.current?.play().catch(() => {});
+          } else {
+            videoRef.current?.pause();
+          }
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(videoRef.current);
+    return () => observer.disconnect();
+  }, [isVideo]);
+
   const handleMouseEnter = () => {
-    if (isVideo && videoRef.current) {
+    // На десктопе запускаем только при наведении
+    if (isVideo && videoRef.current && window.innerWidth > 1024) {
       videoRef.current.play().catch(() => {});
     }
   };
 
   const handleMouseLeave = () => {
-    if (isVideo && videoRef.current) {
+    // На десктопе ставим на паузу при уходе курсора
+    if (isVideo && videoRef.current && window.innerWidth > 1024) {
       videoRef.current.pause();
     }
   };
@@ -80,7 +104,7 @@ function ProductMedia({ src, title, isVideo, poster }: { src: string; title: str
           playsInline
           preload="auto"
           className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-          style={{ backfaceVisibility: 'hidden', opacity: 1 }}
+          style={{ backfaceVisibility: 'hidden' }}
         />
       ) : (
         <Image 
@@ -103,13 +127,15 @@ export default function Page() {
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   return (
     <main className="min-h-screen bg-[#f9f9fb] text-zinc-900 overflow-x-hidden font-sans">
       
-      {/* HERO SECTION — Оптимизировано LCP */}
+      {/* HERO SECTION */}
       <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image 
@@ -120,7 +146,6 @@ export default function Page() {
             quality={90}
             className="object-cover" 
           />
-          {/* Удален backdrop-blur для стабильной загрузки */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </div>
         <div className="relative z-20 h-full w-full"> 
@@ -137,7 +162,6 @@ export default function Page() {
 
       <section className="relative z-30 -mt-10 bg-[#f5f5f7] rounded-t-[24px] md:rounded-t-[40px] pb-16">
         
-        {/* Адаптированный заголовок для мобильных */}
         <div className="max-w-[1400px] mx-auto px-6 pt-20 mb-20 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }} 
@@ -164,7 +188,7 @@ export default function Page() {
                   <motion.div 
                     layout="position"
                     onClick={() => toggleExpand(item.id)}
-                    className={`relative overflow-hidden rounded-[20px] md:rounded-[24px] group cursor-pointer shadow-sm z-10 transform-gpu
+                    className={`relative overflow-hidden rounded-[24px] group cursor-pointer shadow-sm z-10 transform-gpu
                       ${isFullWidth ? 'h-[500px] md:h-[700px]' : 'h-[350px] md:h-[450px]'}
                     `}
                     style={{ backfaceVisibility: 'hidden' }}

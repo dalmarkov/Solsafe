@@ -35,7 +35,7 @@ const farmServices = [
   { 
     title: "Projektowanie", 
     desc: "Dobor odpowiednich rozwiazan technicznych.",
-    full: "Twoj projekt wymaga wsparcia finansowego? Znamy wszystkie dostepne na rynku mozliwosci i pomozemy Ci je pozyskac. Tworzymy szczegolowy projekt budowlany bedacy podstawa do wydania pozwolen.",
+    full: "Twój projekt wymaga wsparcia finansowego? Znamy wszystkie dostępne na rynku możliwości i pomożemy Ci je pozyskac. Tworzymy szczegółowy projekt budowlany, będący podstawą do wydania pozwoleń.",
     img: "/img/farmy/projektowanie.jpg"
   },
   { 
@@ -47,13 +47,13 @@ const farmServices = [
   { 
     title: "Budowa", 
     desc: "Dostawa, montaz, utrzymanie.",
-    full: "Posiadamy wlasny transport, sprzet budowlany i ekipy wykonawcze. Nasze doswiadczenie v realizacji duzych projektow v Europie gwarantuje najwyzsze standardy budowy farm o mocach megawatowych.",
+    full: "Posiadamy własny transport, sprzęt budowlany i ekipy wykonawcze. Nasze doświadczenie w realizacji dużych projektow w Europie gwarantuje najwyższe standardy budowy farm o mocach megawatowych.",
     img: "/img/farmy/budowa.jpg"
   },
   { 
     title: "O&M", 
     desc: "Monitoring, serwis.",
-    full: "Wspieramy Cie rowniez po uruchomieniu farmy. Monitorujemy i weryfikujemy produkcje v pierwszym okresie pracy, co daje Ci gwarancje, ze Twoja inwestycja bedzie dzialac na 100% mozliwosci.",
+    full: "Wspieramy Cię również po uruchomieniu farmy. Monitorujemy i weryfikujemy produkcję w pierwszym okresie pracy, co daje Ci gwarancję, że Twoja inwestycja będzie działać na 100% możliwości.",
     img: "/img/farmy/monitoring-farmy.jpg"
   }
 ]
@@ -62,28 +62,57 @@ export default function Page() {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const playCount = useRef(0); // Счетчик воспроизведений для мобилок
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
+    // Логика только для мобильных устройств (тачскрин)
+    const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+
+    if (isMobile) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && playCount.current < 2) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        },
+        { threshold: 0.3 }
+      );
+
+      const handleVideoEnded = () => {
+        playCount.current += 1;
+        if (playCount.current >= 2) {
+          video.loop = false; // Останавливаем цикл после 2 раз
           video.pause();
         }
-      },
-      { threshold: 0.3 }
-    );
+      };
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+      video.addEventListener('ended', handleVideoEnded);
+      if (containerRef.current) observer.observe(containerRef.current);
+
+      return () => {
+        observer.disconnect();
+        video.removeEventListener('ended', handleVideoEnded);
+      };
     }
-
-    return () => observer.disconnect();
   }, []);
+
+  // Обработчики для десктопа (hover)
+  const handleMouseEnter = () => {
+    if (window.innerWidth > 1024 && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 1024 && videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
 
   return (
     <main className="min-h-screen bg-[#f9f9fb] font-sans overflow-x-hidden antialiased">
@@ -121,7 +150,7 @@ export default function Page() {
       {/* MAIN SERVICES SECTION */}
       <section className="relative z-30 w-full bg-[#f9f9fb] -mt-10 rounded-t-[24px]">
         <motion.div
-          className="w-full px-2 md:px-12 py-16 md:py-24" // Изменено px-6 на px-2 для мобилок
+          className="w-full px-2 md:px-12 py-16 md:py-24" 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -195,7 +224,7 @@ export default function Page() {
 
               {/* RIGHT SIDE — ACCORDIONS */}
               <div className="grid gap-5">
-                <h2 className="lg:hidden text-3xl font-normal mb-8 tracking-light text-zinc-900 uppercase leading-tight text-center">
+                <h2 className="lg:hidden text-3xl font-normal mb-8 tracking-tight text-zinc-900 uppercase leading-tight text-center">
                   Energia na wielka skale
                 </h2>
 
@@ -315,9 +344,10 @@ export default function Page() {
                 </motion.div>
               </div>
 
-              {/* Блок на мобилке теперь шире за счет отрицательного margin */}
               <div 
                 ref={containerRef}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 className="max-w-[1440px] w-full -mx-1 md:mx-0 grid grid-cols-1 lg:grid-cols-5 gap-0 items-stretch bg-zinc-950 rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl min-h-[450px] md:min-h-[550px]"
               >
                 
@@ -326,14 +356,13 @@ export default function Page() {
                   <video
                     ref={videoRef}
                     src="/img/farmy/box_energy.mp4"
-                    loop
+                    loop={true} // Цикл включен по умолчанию для десктопа
                     muted
                     playsInline
                     preload="auto"
                     className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                   />
                   
-                  {/* Градиенты: на мобилке (to-b) переходит вниз в черный фон текста */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950 lg:hidden pointer-events-none h-full" />
                   <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-transparent to-transparent hidden lg:block pointer-events-none w-1/3" />
                 </div>

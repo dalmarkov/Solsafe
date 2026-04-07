@@ -1,18 +1,24 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
-export async function POST(req: Request) {
+// Инициализируем Resend вашим API ключом
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function POST(request: Request) {
   try {
-    // Читаем данные из формы (просто чтобы убедиться, что они приходят)
-    const data = await req.json();
-    console.log("Получены данные из формы:", data);
+    const { name, email, message } = await request.json();
 
-    // Имитируем задержку сети (1.5 секунды), чтобы увидеть анимацию кнопки
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Отправка письма
+    const data = await resend.emails.send({
+      from: 'SolSafe Form <onboarding@resend.dev>', // После настройки домена замените на contact@solsafe.pl
+      to: ['Solsafe@Solsafe.pl'], // Куда должны приходить заявки
+      subject: `Nowa wiadomość od: ${name}`,
+      replyTo: email,
+      text: `Imię: ${name}\nE-mail: ${email}\n\nWiadomość:\n${message}`,
+    });
 
-    // Возвращаем успех без реальной отправки через SMTP
-    return NextResponse.json({ success: true }, { status: 200 });
-
+    return NextResponse.json({ success: true, data });
   } catch (error) {
-    return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });
+    return NextResponse.json({ success: false, error }, { status: 500 });
   }
 }
