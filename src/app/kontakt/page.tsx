@@ -16,7 +16,7 @@ const contactData = [
     people: [
       { name: "Aleksandra Krzysteczko", tels: ["+48 532 456 626"], mail: "a.krzysteczko@solsafe.pl" },
       { name: "Marta Tarnawa", tels: ["+48 532 560 839"], mail: "m.tarnawa@solsafe.pl" },
-      { name: "Andżelika Śliwa", tels: ["+48 532 356 374"], mail: "a.sliwa@solsafe.pl" }
+      { name: "Angelika Śliwa", tels: ["+48 532 356 374"], mail: "a.sliwa@solsafe.pl" }
     ]
   },
   {
