@@ -26,7 +26,7 @@ const team = [
   { name: "Ireneusz Wiecha", role: "Kierownik projektu", dept: "Dział techniczny", img: "/img/zespol/Ireniusz_W.jpg" },
   { name: "Dawid Wawak", role: "Kierownik projektu", dept: "Dział techniczny", img: "/img/zespol/Dawid_W.jpg" },
   { name: "Andrzej Pieróg", role: "Kierownik projektu", dept: "Dział techniczny", img: "" },
-  { name: "Wojciech Szpoton", role: "Specjalista ds. technicznych", dept: "Dział techniczny", img: "/img/zespol/Wojtek_S.jpg" },
+  { name: "Wojciech Szpoton", role: "Specjalista ds. technicznych", dept: "Dział techniczny", img: "/img/zespol/Wojtek_Sp.jpg" },
   { name: "Aleksandra Krzysteczko", role: "Dział księgowy", dept: "Dział finansowy", img: "/img/zespol/Ola_K.jpg" },
   { name: "Marta Tarnawa", role: "Dział księgowy", dept: "Dział finansowy", img: "/img/zespol/Marta_T.jpg" },
   { name: "Angelika Śliwa", role: "Dział księgowy", dept: "Dział finansowy", img: "/img/zespol/Angelika_S.jpeg" },
