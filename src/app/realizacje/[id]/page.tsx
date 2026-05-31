@@ -53,7 +53,7 @@ export default function ProjectDetailPage() {
       {/* Текстура шума */}
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.04] mix-blend-multiply noise-bg"></div>
 
-      {/* 1. НАВИГАЦИЯ (Адаптированная высота) */}
+      {/* 1. НАВИГАЦИЯ */}
       <nav className="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-3 md:py-4 flex justify-between items-center bg-white/60 backdrop-blur-xl border-b border-zinc-100/30">
         <Link href="/realizacje" className="group flex items-center gap-2 md:gap-3 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] hover:text-black transition-colors">
           <span className="text-base md:text-lg leading-none">‹</span> 
@@ -66,7 +66,7 @@ export default function ProjectDetailPage() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto px-4 md:px-12 lg:px-24 pt-24 md:pt-32 pb-20">
         
-        {/* 2. ТИТУЛ (Адаптивный размер) */}
+        {/* 2. ТИТУЛ */}
         <header className="mb-10 md:mb-16">
           <motion.h1 
             initial={{ opacity: 0, y: 15 }}
@@ -77,19 +77,19 @@ export default function ProjectDetailPage() {
           </motion.h1>
         </header>
 
-        {/* 3. КОНТЕНТ (Стек на мобильных) */}
+        {/* 3. КОНТЕНТ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start border-t border-zinc-100 pt-8 md:pt-12">
           
           {/* СЛАЙДЕР */}
           <div className="lg:col-span-8 group relative w-full">
-            <div className="relative aspect-[4/3] md:aspect-[16/10] w-full overflow-hidden rounded-[24px] md:rounded-[40px] bg-zinc-50 shadow-sm">
+            <div className="relative aspect-[4/3] md:aspect-[16/10] w-full overflow-hidden rounded-[24px] md:rounded-[20px] bg-zinc-50 shadow-sm">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIdx}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.25 }}
                   className="absolute inset-0"
                 >
                   <Image 
@@ -136,7 +136,7 @@ export default function ProjectDetailPage() {
             </div>
           </div>
 
-          {/* ТТХ (Вертикальный список) */}
+          {/* ТТХ */}
           <div className="lg:col-span-4 flex flex-col pt-4 md:pt-2">
             <h3 className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-6 md:mb-8">
               Specyfikacja techniczna
@@ -162,7 +162,7 @@ export default function ProjectDetailPage() {
           </div>
         </div>
 
-        {/* 4. ОПИСАНИЕ (Адаптивные колонки) */}
+        {/* 4. ОПИСАНИЕ */}
         <section className="mt-16 md:mt-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,7 +173,6 @@ export default function ProjectDetailPage() {
             <div className="h-px w-12 md:w-16 bg-[#ff5a1f] mb-8 md:mb-12" />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-24">
-              {/* Колонки текста */}
               <div className="flex gap-4 md:gap-8">
                 <span className="text-[9px] md:text-[10px] font-black text-[#ff5a1f] mt-1.5 md:mt-2 tracking-widest shrink-0">01</span>
                 <p className="text-lg md:text-2xl lg:text-3xl text-zinc-900 font-light leading-[1.4] md:leading-[1.3] tracking-tight">
@@ -193,20 +192,17 @@ export default function ProjectDetailPage() {
           </motion.div>
         </section>
 
-        {/* 5. CTA (Крупно даже на мобилках) */}
+        {/* 5. CTA */}
         <section className="mt-24 md:mt-40 text-center border-t border-zinc-100 pt-16 md:pt-24">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-400 mb-8 md:mb-12">
               Gotowy na projekt?
             </h3>
-            <Link 
-              href="/kontakt" 
-              className="group relative inline-block text-3xl md:text-7xl font-light uppercase tracking-tighter"
-            >
-              <span className="relative z-10 group-active:text-zinc-500 transition-colors text-black">
+            
+            <Link href="/kontakt">
+              <button className="px-12 md:px-16 py-5 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#ff5a1f] transition-all shadow-xl active:scale-95 transform-gpu">
                 Kontakt
-              </span>
-              <div className="absolute left-0 bottom-0 w-full h-[1px] bg-black" />
+              </button>
             </Link>
           </div>
         </section>

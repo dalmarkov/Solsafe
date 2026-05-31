@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, Variants, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FileSearch, DraftingCompass, Waypoints, HardHat, Settings2 } from 'lucide-react'
 
 const containerVariants: Variants = {
   hidden: { opacity: 1 },
@@ -28,33 +29,33 @@ const itemVariants: Variants = {
 const farmServices = [
   { 
     title: "Analiza", 
+    icon: FileSearch,
     desc: "Koncepcja, rentownosc, zalozenia.",
-    full: "Opracujemy koncepcje inwestycji, analizy okresu zwrotu i wskaznikow pozyskiwania energii. Przygotujemy za Ciebie wnioski o wydanie wszystkich niezbednych decyzji oraz dokumenty do warunkow przylaczenia.",
-    img: "/img/farmy/analiza.jpg" 
+    full: "Przeprowadzamy kompleksową analizę wykonalności (feasibility study) inwestycji, obejmującą prognozę uzysku energii oraz precyzyjne wyliczenie wskaźników IRR i NPV. Przygotowujemy pełną strategię inwestycyjną oraz bierzemy na siebie cały proces administracyjny: od uzyskania decyzji o środowiskowych uwarunkowaniach, przez uzyskanie warunków zabudowy, aż po ostateczne warunki przyłączenia do sieci elektroenergetycznej."
   },
   { 
     title: "Projektowanie", 
+    icon: DraftingCompass,
     desc: "Dobor odpowiednich rozwiazan technicznych.",
-    full: "Twój projekt wymaga wsparcia finansowego? Znamy wszystkie dostępne na rynku możliwości i pomożemy Ci je pozyskac. Tworzymy szczegółowy projekt budowlany, będący podstawą do wydania pozwoleń.",
-    img: "/img/farmy/projektowanie.jpg"
+    full: "Opracowujemy wielobranżowe projekty budowlane i wykonawcze, optymalizując układ farmy pod kątem maksymalizacji uzysków energii przy zachowaniu minimalnych kosztów operacyjnych (OPEX). Dobieramy komponenty o najwyższej klasie niezawodności i przeprowadzamy weryfikację bankowalności (bankability) technologii, co jest kluczowe przy ubieganiu się o zewnętrzne finansowanie inwestycji."
   },
   { 
     title: "Pelna obsluga OSD", 
+    icon: Waypoints,
     desc: "Warunki przylaczeniowe, telemechanika, badania IRiESD.",
-    full: "Zarzadzamy pelnym procesem przylaczeniowym: od uzyskania warunkow u Operatora (OSD), przez wdrozenie systemow zdalnej telemechaniki, az po certyfikowane badania zgodnosci IRiESD, gwarantujace bezpieczne i legalne oddawanie energii do sieci.",
-    img: "/img/farmy/przylacze.jpg"
+    full: "Zarządzamy pełnym procesem przyłączeniowym, eliminując ryzyka formalno-prawne. Nasze wsparcie obejmuje projektowanie układów automatyki, wdrożenie systemów zdalnego sterowania telemechaniką oraz pełną obsługę procedur odbiorowych. Gwarantujemy przeprowadzenie niezbędnych badań zgodności IRiESD oraz uzyskanie certyfikacji wymaganej przez Operatorów Systemów Dystrybucyjnych (OSD) do legalnego wprowadzenia energii do sieci."
   },
   { 
     title: "Budowa", 
+    icon: HardHat,
     desc: "Dostawa, montaz, utrzymanie.",
-    full: "Posiadamy własny transport, sprzęt budowlany i ekipy wykonawcze. Nasze doświadczenie w realizacji dużych projektow w Europie gwarantuje najwyższe standardy budowy farm o mocach megawatowych.",
-    img: "/img/farmy/budowa.jpg"
+    full: "Jako generalny wykonawca farm wielkoskalowych posiadamy własne zaplecze techniczne, logistyczne oraz specjalistyczne ekipy montażowe. Nasza kadra inżynierska nadzoruje każdy etap prac budowlanych – od przygotowania terenu i kafarowania, po montaż konstrukcji i instalację elektryczną. Stosujemy rygorystyczne standardy kontroli jakości, co zapewnia terminowość oraz najwyższy poziom bezpieczeństwa wykonania farm o mocach megawatowych."
   },
   { 
     title: "O&M", 
+    icon: Settings2,
     desc: "Monitoring, serwis.",
-    full: "Wspieramy Cię również po uruchomieniu farmy. Monitorujemy i weryfikujemy produkcję w pierwszym okresie pracy, co daje Ci gwarancję, że Twoja inwestycja będzie działać na 100% możliwości.",
-    img: "/img/farmy/monitoring-farmy.jpg"
+    full: "Zapewniamy profesjonalne zarządzanie eksploatacją i utrzymaniem ruchu (O&M). Nasz autorski system monitoringu 24/7 wykrywa anomalie w czasie rzeczywistym, pozwalając na prewencyjne reagowanie i minimalizację przestojów. Świadczymy usługi przeglądów okresowych, serwisów gwarancyjnych i pogwarancyjnych, co pozwala utrzymać wydajność instalacji na założonym poziomie przez cały cykl życia farmy."
   }
 ]
 
@@ -62,13 +63,12 @@ export default function Page() {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const playCount = useRef(0); // Счетчик воспроизведений для мобилок
+  const playCount = useRef(0);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Логика только для мобильных устройств (тачскрин)
     const isMobile = window.matchMedia("(max-width: 1024px)").matches;
 
     if (isMobile) {
@@ -86,7 +86,7 @@ export default function Page() {
       const handleVideoEnded = () => {
         playCount.current += 1;
         if (playCount.current >= 2) {
-          video.loop = false; // Останавливаем цикл после 2 раз
+          video.loop = false;
           video.pause();
         }
       };
@@ -101,7 +101,6 @@ export default function Page() {
     }
   }, []);
 
-  // Обработчики для десктопа (hover)
   const handleMouseEnter = () => {
     if (window.innerWidth > 1024 && videoRef.current) {
       videoRef.current.play().catch(() => {});
@@ -117,7 +116,6 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-[#f9f9fb] font-sans overflow-x-hidden antialiased">
 
-      {/* HERO SECTION */}
       <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden flex flex-col justify-end transform-gpu">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
@@ -147,7 +145,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* MAIN SERVICES SECTION */}
       <section className="relative z-30 w-full bg-[#f9f9fb] -mt-10 rounded-t-[24px]">
         <motion.div
           className="w-full px-2 md:px-12 py-16 md:py-24" 
@@ -158,7 +155,6 @@ export default function Page() {
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-start">
               
-              {/* LEFT SIDE (DESKTOP) */}
               <motion.div variants={itemVariants} className="lg:sticky lg:top-40 hidden lg:block transform-gpu">
                 <h2 className="text-3xl md:text-5xl font-light mb-16 tracking-tight text-zinc-900 uppercase">
                   Energia na wielka skale
@@ -190,39 +186,22 @@ export default function Page() {
                           <span className="text-black text-[10px] font-black uppercase tracking-[0.5em] block mb-8">
                             {farmServices[expandedIdx].title}
                           </span>
-                          <p className="text-lg md:text-2xl lg:text-3xl font-light leading-snug tracking-tight text-black">
+                          <p className="text-lg md:text-2xl lg:text-3xl font-light leading-snug tracking-tight text-black mb-12">
                             {farmServices[expandedIdx].full}
                           </p>
+                          <div className="text-[#ff5a1f] opacity-30 drop-shadow-xl">
+                            {(() => {
+                              const Icon = farmServices[expandedIdx].icon;
+                              return <Icon size={180} strokeWidth={1.2} />;
+                            })()}
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-
-                    <div className="relative w-full h-[350px] md:h-[400px] rounded-[24px] overflow-hidden bg-zinc-100 shadow-lg transform-gpu">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={expandedIdx ?? 'default'}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.4 }}
-                          className="absolute inset-0"
-                        >
-                          <Image
-                            src={expandedIdx !== null ? farmServices[expandedIdx].img : "/img/farmy.jpg"}
-                            alt="SolSafe Farm Detail"
-                            fill
-                            className="object-cover"
-                            priority={expandedIdx === null}
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                          />
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* RIGHT SIDE — ACCORDIONS */}
               <div className="grid gap-5">
                 <h2 className="lg:hidden text-3xl font-normal mb-8 tracking-tight text-zinc-900 uppercase leading-tight text-center">
                   Energia na wielka skale
@@ -304,17 +283,6 @@ export default function Page() {
                             <p className="text-sm leading-snug font-medium mb-6 italic">
                               {item.full}
                             </p>
-                            <div className="relative w-full h-[220px] rounded-[16px] overflow-hidden bg-zinc-100 shadow-inner transform-gpu">
-                               <Image
-                                src={item.img}
-                                alt={item.title}
-                                fill
-                                quality={80}
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 30vw"
-                                priority
-                              />
-                            </div>
                           </div>
                         </motion.div>
                       )}
@@ -324,7 +292,6 @@ export default function Page() {
               </div>
             </div>
 
-            {/* --- SECTION: ENERGY STORAGE (ENLARGED & SEAMLESS) --- */}
             <motion.div variants={itemVariants} className="mt-[80px] md:mt-[160px] flex flex-col items-center transform-gpu">
               
               <div className="text-center mb-[40px] md:mb-[100px] w-full px-4 flex flex-col items-center">
@@ -351,12 +318,11 @@ export default function Page() {
                 className="max-w-[1440px] w-full -mx-1 md:mx-0 grid grid-cols-1 lg:grid-cols-5 gap-0 items-stretch bg-zinc-950 rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl min-h-[450px] md:min-h-[550px]"
               >
                 
-                {/* ВИДЕО БЛОК */}
                 <div className="relative h-[350px] lg:h-auto w-full order-1 lg:order-2 lg:col-span-3 overflow-hidden bg-black">
                   <video
                     ref={videoRef}
                     src="/img/farmy/box_energy.mp4"
-                    loop={true} // Цикл включен по умолчанию для десктопа
+                    loop={true}
                     muted
                     playsInline
                     preload="auto"
@@ -367,7 +333,6 @@ export default function Page() {
                   <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-transparent to-transparent hidden lg:block pointer-events-none w-1/3" />
                 </div>
 
-                {/* ТЕКСТОВЫЙ БЛОК */}
                 <div className="p-8 md:p-16 py-16 md:py-20 flex flex-col justify-center items-start order-2 lg:order-1 lg:col-span-2 bg-zinc-950">
                   <h2 className="text-white text-4xl md:text-5xl font-light mb-6 tracking-tight uppercase leading-tight">
                     Wielkoskalowe <br /> <span className="font-medium">Magazyny Energii</span>
@@ -380,7 +345,6 @@ export default function Page() {
               </div>
             </motion.div>
 
-            {/* FINAL CONTACT BLOCK */}
             <motion.div variants={itemVariants} className="w-full pt-[80px] md:pt-[120px] flex flex-col items-center text-center">
               <p className="text-zinc-500 text-base md:text-lg font-light mb-10 max-w-2xl leading-relaxed">
                 Szukasz sprawdzonego partnera do realizacji wielkoskalowej inwestycji OZE? Razem zbudujemy bezpieczna przyszlosc Twojego biznesu.

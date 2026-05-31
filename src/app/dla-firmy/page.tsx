@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { BarChart3, Zap, BatteryCharging, Network, Wrench, Activity } from 'lucide-react'
 
 const containerVariants = {
   hidden: { opacity: 1 },
@@ -28,38 +29,44 @@ const itemVariants = {
 const services = [
   { 
     title: "Audyt energetyczny", 
+    icon: BarChart3,
     desc: "Szczegółowa analiza profilu zużycia mocy.",
-    full: "Sprawdzamy, czy parametry energetyczne w Twojej firmie są odpowiednio dobrane. Analizujemy faktury i moc zamówioną, eliminując kary za przekroczenia oraz opłaty za energię bierną.",
+    full: "Przeprowadzamy audyt energetyczny obejmujący weryfikację wydajności energetycznej przedsiębiorstwa. Analizujemy profile zużycia energii w układzie rocznym, optymalizujemy moc zamówioną oraz identyfikujemy źródła strat energii biernej. Wynikiem audytu jest raport z gotowymi rekomendacjami modernizacyjnymi, które pozwalają na realną redukcję kosztów operacyjnych i ochronę przed karami od Operatorów Systemów Dystrybucyjnych.",
     img: "/img/dla-firmy/IMG_0558.jpg" 
   },
   { 
     title: "Instalacje fotowoltaiczne", 
+    icon: Zap,
     desc: "Projektowanie, montaż, utrzymanie.",
-    full: "Doradzamy, jak optymalnie wykorzystać powierzchnię budynku lub gruntu. Dobieramy wielkość instalacji oraz rodzaj komponentów premium, montujemy i uruchamiamy system.",
+    full: "Dostarczamy kompleksowe rozwiązania fotowoltaiczne typu 'pod klucz' dla przemysłu i biznesu. Każdy projekt poprzedzamy precyzyjną analizą nasłonecznienia oraz analizą strukturalną dachu/gruntu. Korzystamy wyłącznie z komponentów Tier-1, które gwarantują maksymalną wydajność w długim terminie. Nasze instalacje są projektowane tak, aby uzyskać najwyższy współczynnik autokonsumpcji, co drastycznie skraca czas zwrotu z inwestycji (ROI).",
     img: "/img/dla-firmy/montaz.jpg"
   },
   { 
     title: "Magazyn energii", 
+    icon: BatteryCharging,
     desc: "Niezależność i bezpieczeństwo.",
-    full: "Zwiększamy autokonsumpcję energii w Twoim przedsiębiorstwie. Magazyn energii chroni przed blackoutami i zapewnia stabilne zasilanie rezerwowe.",
+    full: "Wdrażamy przemysłowe systemy magazynowania energii (BESS), które stanowią fundament bezpieczeństwa energetycznego firmy. Nasze rozwiązania pozwalają na arbitraż cenowy (magazynowanie energii w taniej taryfie i wykorzystanie w szczycie), eliminację przerw w dostawie prądu (funkcja UPS dla całego obiektu) oraz stabilizację parametrów sieciowych, co chroni wrażliwy sprzęt przed uszkodzeniami.",
     img: "/img/dla-firmy/magazyn.png"
   },
   { 
     title: "Zarządzanie energią", 
+    icon: Network,
     desc: "Optymalizacja zużycia energii, optymalizacja procesu.",
-    full: "Dobierzemy najkorzystniejszą grupę taryfową oraz stawki za energię. Będziemy negocjować w Twoim imieniu z dostawcami, dbając o stabilność umów.",
+    full: "Oferujemy profesjonalne doradztwo w zakresie strategii zakupowych energii elektrycznej. Analizujemy rynek, negocjujemy kontrakty z dostawcami i dobieramy najkorzystniejsze profile taryfowe dopasowane do specyfiki Twojej produkcji. Nasze podejście pozwala ograniczyć ekspozycję firmy na zmienność cen rynkowych, zapewniając stabilność budżetową i przewidywalne koszty energii w długiej perspektywie.",
     img: "/img/dla-firmy/management.jpg"
   },
   { 
     title: "Usługi serwisowe / Konserwacja", 
+    icon: Wrench,
     desc: "Przeglądy, opieka techniczna, pomiary, modernizacje, utylizacja.",
-    full: "Zapewniamy ciągłość pracy elektrowni poprzez regularne przeglądy. Szybki czas reakcji serwisu gwarantuje minimalizację strat.",
+    full: "Gwarantujemy najwyższą dostępność operacyjną Twojej elektrowni. Nasz serwis świadczy usługi przeglądów okresowych z wykorzystaniem kamer termowizyjnych, pomiarów elektrycznych oraz certyfikowanych przeglądów instalacji. Zapewniamy szybki czas reakcji (SLA), zdalną diagnostykę usterek oraz wsparcie w zakresie modernizacji systemów, co zapobiega przestojom w produkcji i pozwala utrzymać farmę w najwyższej kondycji technicznej.",
     img: "/img/dla-firmy/service.jpg"
   },
   { 
     title: "Monitoring", 
+    icon: Activity,
     desc: "Pełna kontrola nad zużyciem energii w przedsiębiorstwie.",
-    full: "Oferujemy inteligentne systemy monitorowania 24/7. Masz wgląd w czasie rzeczywistym w wydajność instalacji i realne oszczędności.",
+    full: "Wdrażamy zaawansowane systemy monitoringu (SCADA/EMS), które integrują dane z całej infrastruktury energetycznej firmy. Dzięki analityce danych w czasie rzeczywistym, masz pełną kontrolę nad wydajnością instalacji OZE, bieżącym zużyciem energii oraz stanem magazynów energii. Systemy raportowania pozwalają na wyciąganie wniosków w celu dalszej optymalizacji procesów produkcyjnych i precyzyjnego zarządzania kosztami energii.",
     img: "/img/dla-firmy/monitoring.jpg"
   }
 ]
@@ -70,7 +77,7 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-[#f9f9fb] font-sans overflow-x-hidden antialiased">
 
-      {/* HERO SECTION — LCP Optimization with blur effect */}
+      {/* HERO SECTION */}
       <section className="relative w-full h-[75dvh] md:h-[90vh] bg-black overflow-hidden transform-gpu">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
@@ -146,34 +153,19 @@ export default function Page() {
                           <span className="text-black text-[10px] font-black uppercase tracking-[0.5em] block mb-8">
                             {services[expandedIdx].title}
                           </span>
-                          <p className="text-lg md:text-2xl lg:text-3xl font-light leading-snug tracking-tight text-black">
+                          <p className="text-lg md:text-2xl lg:text-3xl font-light leading-snug tracking-tight text-black mb-12">
                             {services[expandedIdx].full}
                           </p>
+                          {/* Иконка в левой части под текстом */}
+                          <div className="text-[#ff5a1f] opacity-30 drop-shadow-xl">
+                            {(() => {
+                              const Icon = services[expandedIdx].icon;
+                              return <Icon size={160} strokeWidth={1} />;
+                            })()}
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-
-                    <div className="relative w-full h-[350px] md:h-[400px] rounded-[24px] overflow-hidden bg-zinc-100 shadow-lg">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={expandedIdx ?? 'default-img'}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="absolute inset-0"
-                        >
-                          <Image
-                            src={expandedIdx !== null ? services[expandedIdx].img : "/img/for_firm1.png"}
-                            alt="SolSafe Detail"
-                            fill
-                            quality={85}
-                            className="object-cover"
-                            sizes="(max-width: 1024px) 100vw, 40vw"
-                          />
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -262,17 +254,6 @@ export default function Page() {
                             <p className="text-zinc-900 text-sm md:text-lg leading-snug font-medium tracking-tight mb-6 italic">
                               {item.full}
                             </p>
-                            <div className="relative w-full h-[220px] rounded-[16px] overflow-hidden bg-zinc-100 shadow-inner transform-gpu">
-                               <Image
-                                src={item.img}
-                                alt={item.title}
-                                fill
-                                quality={80}
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 30vw"
-                                priority // Eliminates micro-loading delay during expansion
-                              />
-                            </div>
                           </div>
                         </motion.div>
                       )}

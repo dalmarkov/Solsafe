@@ -17,11 +17,11 @@ export default function Footer() {
         <div>
           <Link href="/" onClick={scrollToTop} className="inline-block mb-8 hover:opacity-80 transition-opacity">
             <Image 
-              src="/logo_solsafe.png"
+              src="/solsafe_logo.png"
               alt="Solsafe Logo" 
-              width={140}
+              width={150}
               height={45}
-              className="object-contain brightness-0"
+              className="object-contain"
             />
           </Link>
           <p className="text-gray-500 text-sm font-light leading-relaxed max-w-xs">

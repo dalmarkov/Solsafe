@@ -157,7 +157,6 @@ export default function Navbar() {
               <div className={`fixed top-[70px] left-0 w-screen z-[200] transition-all duration-300 ${isFirmaOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                 <div className="bg-white shadow-2xl border-t border-gray-100">
                   <div className="max-w-[1440px] mx-auto px-8 xl:px-12 flex justify-end">
-                    {/* mr-10 смещает текст на 10 пикселей влево относительно края O NAS */}
                     <div className="w-[280px] py-12 flex flex-col items-start mr-13">
                       <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400 block mb-6">O Firmie</span>
                       <div className="flex flex-col gap-5">
@@ -174,13 +173,13 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4 relative z-[160]">
             {!isMobileMenuOpen && (
-              <a 
-                href="mailto:solsafe@solsafe.pl" 
-                title="solsafe@solsafe.pl"
+              <Link 
+                href="/kontakt#formularz" 
+                title="Kontakt"
                 className="hidden xl:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-[#ff5a1f] transition-all duration-300 text-white"
               >
                 <MailIcon />
-              </a>
+              </Link>
             )}
 
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="xl:hidden flex flex-col gap-1.5 p-2 focus:outline-none">

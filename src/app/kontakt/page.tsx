@@ -99,6 +99,15 @@ export default function KontaktPage() {
     <main className="min-h-screen bg-[#F7F6F2] text-[#1a1a1a] pt-[120px] md:pt-[180px] pb-32 px-4 md:px-12 font-sans overflow-x-hidden">
       <div className="max-w-[1440px] mx-auto">
         
+        {/* ЗАГОЛОВОК СТРАНИЦЫ */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-7xl font-light tracking-tight mb-20 md:mb-20 text-center md:text-left"
+        >
+          Kontakt
+        </motion.h1>
+        
         {/* CONTACT GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 transform-gpu">
           {contactData.map((item) => (
@@ -145,7 +154,8 @@ export default function KontaktPage() {
         </div>
 
         {/* FORM SECTION */}
-        <motion.div 
+        <motion.div
+          id="formularz" 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
